@@ -1,0 +1,29 @@
+1.引入Nacos配置管理依赖（nacos-config)
+        <dependencies>
+        <!--引入nacos 配置管理 依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!--引入微服务 bootstrap 依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+      </dependencies>
+2.配置bootstrap.yaml
+#bootstrap配置文件
+#该配置文件优先级大于application.yaml
+#需要从配置中心获取配置信息,故要将nacos配置中心的配置信息 配置到bootstrap配置文件中
+spring:
+  cloud:
+    nacos: #配置Nacos
+      config:
+      #nacos服务所在地址; (服务器ip:端口号)(若要进行生产部署,则此处公网ip必须换为内网ip)
+        server-addr: 122.51.6.228:8848
+        #文件的后缀名(命名格式,和该配置文件后缀相同),会存在于云端nacos中
+        file-extension: yaml
+3.在nacos系统管理页面的配置管理中添加配置
+4.做添加配置的配置规则()
+5.创建controller，并为其添加@RefreshScope注解
+6.启动所有服务

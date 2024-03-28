@@ -1,0 +1,12 @@
+SpringBoot开发流程:
+    1.引入场景依赖    *
+    2.查看引入场景有哪些被自动装配完毕并开启
+        在配置文件中 debug=true 开启debug模式自动配置报告
+        Negative matches:   未生效的功能 / Positive matches:    生效的功能
+        控制台打印 Did not match: 为未匹配,该功能未开启
+    3.修改配置项
+        参照文档ApplicationProperties中
+    4.自定义加入或替换组件
+        @Bean@Component等
+    5.自定义器:xxxCustomizer
+        自定义已有组件的行为

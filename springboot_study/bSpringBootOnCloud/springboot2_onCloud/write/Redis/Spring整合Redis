@@ -1,0 +1,9 @@
+1.引入Redis依赖
+        <!--引入Redis依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+2.配置yaml文件
+3.创建RedisController
+4.Lifecycle install(使其他模块可以应用)

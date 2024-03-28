@@ -1,0 +1,60 @@
+[00:57:42:010] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55) - Starting HikariCpApplication using Java 11.0.16.1 on DESKTOP-CN0FKSA with PID 1956 (D:\bSpringBootList\hikariCP\target\classes started by DELL in D:\bSpringBootList)
+[00:57:42:021] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:645) - No active profile set, falling back to 1 default profile: "default"
+[00:57:42:650] [INFO] - org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[00:57:42:661] [INFO] - org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) - Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+[00:57:43:127] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108) - Tomcat initialized with port(s): 8086 (http)
+[00:57:43:139] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8086"]
+[00:57:43:140] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting service [Tomcat]
+[00:57:43:141] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.68]
+[00:57:43:228] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+[00:57:43:228] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:290) - Root WebApplicationContext: initialization completed in 1149 ms
+[00:57:43:654] [INFO] - org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:53) - Adding welcome page: class path resource [static/index.html]
+[00:57:43:791] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) - HikariPool-1 - Starting...
+[00:57:44:054] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) - HikariPool-1 - Start completed.
+[00:57:44:166] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8086"]
+[00:57:44:185] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220) - Tomcat started on port(s): 8086 (http) with context path ''
+[00:57:44:209] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61) - Started HikariCpApplication in 2.747 seconds (JVM running for 4.767)
+[00:57:58:489] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[00:57:58:490] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525) - Initializing Servlet 'dispatcherServlet'
+[00:57:58:492] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547) - Completed initialization in 2 ms
+[00:58:20:243] [INFO] - com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350) - HikariPool-1 - Shutdown initiated...
+[00:58:20:259] [INFO] - com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352) - HikariPool-1 - Shutdown completed.
+[00:58:26:512] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55) - Starting HikariCpApplication using Java 11.0.16.1 on DESKTOP-CN0FKSA with PID 29732 (D:\bSpringBootList\hikariCP\target\classes started by DELL in D:\bSpringBootList)
+[00:58:26:521] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:645) - No active profile set, falling back to 1 default profile: "default"
+[00:58:27:026] [INFO] - org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[00:58:27:036] [INFO] - org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) - Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+[00:58:27:430] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108) - Tomcat initialized with port(s): 8086 (http)
+[00:58:27:437] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8086"]
+[00:58:27:438] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting service [Tomcat]
+[00:58:27:438] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.68]
+[00:58:27:525] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+[00:58:27:525] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:290) - Root WebApplicationContext: initialization completed in 952 ms
+[00:58:27:904] [INFO] - org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:53) - Adding welcome page: class path resource [static/index.html]
+[00:58:28:025] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) - HikariPool-1 - Starting...
+[00:58:28:247] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) - HikariPool-1 - Start completed.
+[00:58:28:343] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8086"]
+[00:58:28:376] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220) - Tomcat started on port(s): 8086 (http) with context path ''
+[00:58:28:398] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61) - Started HikariCpApplication in 2.356 seconds (JVM running for 3.963)
+[00:58:32:011] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[00:58:32:012] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525) - Initializing Servlet 'dispatcherServlet'
+[00:58:32:013] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547) - Completed initialization in 1 ms
+[01:26:41:737] [INFO] - com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350) - HikariPool-1 - Shutdown initiated...
+[01:26:41:754] [INFO] - com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352) - HikariPool-1 - Shutdown completed.
+[01:26:48:851] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55) - Starting HikariCpApplication using Java 11.0.16.1 on DESKTOP-CN0FKSA with PID 4116 (D:\bSpringBootList\hikariCP\target\classes started by DELL in D:\bSpringBootList)
+[01:26:48:862] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:645) - No active profile set, falling back to 1 default profile: "default"
+[01:26:49:383] [INFO] - org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:132) - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[01:26:49:393] [INFO] - org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:201) - Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces.
+[01:26:49:844] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108) - Tomcat initialized with port(s): 8086 (http)
+[01:26:49:852] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8086"]
+[01:26:49:853] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting service [Tomcat]
+[01:26:49:854] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.68]
+[01:26:49:932] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+[01:26:49:932] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:290) - Root WebApplicationContext: initialization completed in 1020 ms
+[01:26:50:410] [INFO] - org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:53) - Adding welcome page: class path resource [static/index.html]
+[01:26:50:522] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110) - HikariPool-1 - Starting...
+[01:26:50:794] [INFO] - com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123) - HikariPool-1 - Start completed.
+[01:26:50:899] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8086"]
+[01:26:50:917] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220) - Tomcat started on port(s): 8086 (http) with context path ''
+[01:26:50:938] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61) - Started HikariCpApplication in 2.531 seconds (JVM running for 3.973)
+[01:27:36:940] [INFO] - com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350) - HikariPool-1 - Shutdown initiated...
+[01:27:36:956] [INFO] - com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352) - HikariPool-1 - Shutdown completed.

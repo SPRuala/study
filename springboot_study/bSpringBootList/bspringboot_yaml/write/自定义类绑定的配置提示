@@ -1,0 +1,11 @@
+默认情况下,在配置文件中配置自定义类属性值时,不会有代码提示
+解决方式:
+    配置注释处理器依赖
+    Spring官方提示:配置处理器和业务无关,只是方便开发,故在进行打包时,可以在打包插件中排除配置处理器的打包。避免打包后变成胖胖jar
+                        <excludes>
+                            <exclude>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-configuration-processor</artifactId>
+                            </exclude>
+                        </excludes>
+    (2.4.2后修改了文档,不需要加排除了,但默认会把lombok加到exclude中)

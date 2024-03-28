@@ -1,0 +1,14 @@
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\aspect\ServiceTimeAspect.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\controller\UserController.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\service\impl\UserServiceImpl.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\bo\UserBo.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\mapper\UserMapper.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\utils\exception\result\JsonResult.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\MybatisCrudApplication.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\utils\exception\getthrow\GraceException.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\utils\exception\myexception\UserException.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\pojo\User.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\utils\exception\GraceExceptionHandler.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\utils\my\mapper\MyMapper.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\service\UserService.java
+D:\bSpringBootList\mybatisCRUD\src\main\java\com\bc\mybatiscrud\utils\makeid\IDMaker.java

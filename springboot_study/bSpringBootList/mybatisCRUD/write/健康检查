@@ -1,0 +1,7 @@
+导入依赖
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+浏览器url: /actuator/health

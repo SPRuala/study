@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/bspringboot_mybatis" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/bspringboot_yaml/pom.xml" />
+        <option value="$PROJECT_DIR$/bspringboot_dispositionAndFilePosition/pom.xml" />
+        <option value="$PROJECT_DIR$/bspringboot/pom.xml" />
+        <option value="$PROJECT_DIR$/bspringboot_sql/pom.xml" />
+        <option value="$PROJECT_DIR$/bspringboot_mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/dependencyInjection_invertsControl/pom.xml" />
+        <option value="$PROJECT_DIR$/getStaticResource/pom.xml" />
+        <option value="$PROJECT_DIR$/lombokAndSetLog/pom.xml" />
+        <option value="$PROJECT_DIR$/interfaceResponse/pom.xml" />
+        <option value="$PROJECT_DIR$/fileUpload/pom.xml" />
+        <option value="$PROJECT_DIR$/makeErrorPage/pom.xml" />
+        <option value="$PROJECT_DIR$/makeExceptionAndInterceptorFront/pom.xml" />
+        <option value="$PROJECT_DIR$/timeTask/pom.xml" />
+        <option value="$PROJECT_DIR$/asynchronous/pom.xml" />
+        <option value="$PROJECT_DIR$/hicariCP/pom.xml" />
+        <option value="$PROJECT_DIR$/hikariCP/pom.xml" />
+        <option value="$PROJECT_DIR$/getMybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatisCRUD/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

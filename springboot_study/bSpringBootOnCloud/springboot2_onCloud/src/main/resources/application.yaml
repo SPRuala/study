@@ -1,0 +1,54 @@
+server:
+  port: 8088
+spring:
+  #配置thymeleaf逻辑视图
+  thymeleaf:
+    prefix: classpath:/templates/html/ #前缀
+    suffix: .html #后缀
+  #配置RabbitMQ
+  rabbitmq:
+    host: 172.17.0.7  #远端地址,可以是域名,也可以是ip地址
+    port: 5672  #端口号(15672为控制台,客户端通信应为5672)
+    virtual-host: ruala  #虚拟主机(在RabbitMQ管理页面 Admin/Virtual Hosts 中可新建/删除虚拟主机)
+    username: ruala  #RabbitMQ用户名
+    password: xyx020717  #RabbitMQ密码
+  #配置mongoDB
+  data:
+    mongodb:
+      database: test #mongoDB数据库
+      uri: mongodb://root:xyx020717@172.17.0.7:27017   #mongoDB具体的配置(mongodb://用户名:密码@远端地址:mangodb端口)
+  #配置Redis
+  redis:
+    host: 172.17.0.7  #远端地址,可以是域名,也可以是ip地址(若发布到服务器需改为内网ip)
+    port: 6379 #端口号(默认为6379,发布时需要修改)
+    database: 0 #Redis单机单实例情况下有16个库,此时将第0(1)个库作为业务处理。(集群时没有database,没有库的概念)
+    password: ruala #密码
+#  #配置Nacos(不需要账号密码的配置)
+#  cloud:
+#    nacos:
+#      discovery: #配置服务的发现
+#        server-addr: 172.17.0.7:8848 #nacos服务所在地址; (服务器ip:端口号)(若要进行生产部署,则此处公网ip必须换为内网ip)
+#  application: #配置服务
+#    name: springboot_bc #为服务起名字(每个服务都有自己的名字)
+
+#配置MinIO
+minio:
+  endpoint: http://172.17.0.7:9000 #MinIO服务地址
+  fileHost: http://122.51.6.228:9000 #文件地址(发布情况下endpoint使用内网ip和fileHost使用公网ip)
+  bucketName: ruala #存储桶名称
+  accessKey: root #用户名
+  secretKey: 12345678 #密码
+  imgSize: 1024 #图片大小限制 单位: m (可以通过servlet在外层做统一限制或针对接口做单一限制)
+  fileSize: 1024 #文件大小限制 单位: m (可以通过servlet在外层做统一限制或针对接口做单一限制)
+#配置开启依赖监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#被摒弃的自定义配置写法(改为从nacos配置中心获取)
+#alibaba:
+#  config:
+#    limit: 100 #限流人数
+#    name: 限流

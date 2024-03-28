@@ -1,0 +1,1 @@
+针对service层进行单元测试,需使用Junit保证所有service都被覆盖掉,使用Junit进行单元测试

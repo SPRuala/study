@@ -1,0 +1,14 @@
+1.导入MinIO依赖
+        <!--引入MinIO依赖-->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.2.1</version>
+        </dependency>
+2.配置MinIO工具类和配置类(MinIOConfig.java和MinIOUtils.java)
+3.配置yaml文件
+4.配置文件上传Controller
+
+Bug:
+    bug1:@Value报错: Cannot find method 'value'
+    原因:使用@Value读取配置值应导org.springframework.beans.factory.annotation.Value包,而不是lombok.Data包

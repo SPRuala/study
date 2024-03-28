@@ -1,0 +1,10 @@
+1.RabbitMQ --- 引入依赖和配置
+2.RabbitMQ --- 创建交换机和队列
+3.RabbitMQ --- 创建生产者配置路由规则
+4.RabbitMQ --- 消费者接受消息处理业务
+5.MongoDB --- Spring整合
+6.Redis --- Spring整合
+7.MinIO --- 构建文件上传页面
+8.Nacos --- 注册服务到Nacos
+9.Nacos --- Nacos实现动态配置管理
+10.

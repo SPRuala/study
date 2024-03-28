@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--声明映射文件的命名空间（区分用）-->
+<mapper namespace="com.example.hikaricp.mapper.UserMapper"> <!--往往和文件名一致（给文件里的所有操作起名）-->
+<select id="getAll" resultType="user">
+    select * from test
+</select>
+    <insert id="insertUser" parameterType="user">
+        insert into test value (#{id},#{name},#{age})
+    </insert>
+</mapper>

@@ -1,0 +1,45 @@
+JSR303校验:
+  用于后端验证传参是否合法
+  只可用于yaml属性绑定,不能用于@Value赋值
+  所有注解都位于javax.validation.constraints包下,有需要可以查看
+
+  @Validated:
+     数据校验,加在需要校验的实体类前
+     新版本的SpringBoot若要使用数据校验,需添加hibernate-validator依赖或spring-boot-starter-validation依赖
+  @Email:
+      用于校验属性值是否为邮箱格式
+      数值不合法时会产生报错: Field error in object 'person' on field 'name':rejected value [朱素葆]; codes [Email.person.name,Email.name,Email.java.lang.String,Email];
+      default message [不是一个合法的电子邮件地址]
+      报错信息message可以被自主修改->@Email(message = "邮箱格式不对")
+  @Length:
+     被注释的字符串的大小必须在指定的范围内
+  @NotEmpty:
+     被注释的字符串的必须非空
+  @Range:
+     被注释的元素必须在合适的范围内
+  @Null:
+     此属性必须为null
+  @NotNull:
+     此属性必须不为null
+    (yaml绑定赋值时,如果该属性存在但如果不写值不算null,会显示'')
+  @AssertTrue:
+     被注释的元素必须为 true
+  @AssertFalse:
+     被注释的元素必须为 fa1se
+  @Min(value)/@Max(value):
+     被注释的元素必须是一个数字，其值必须大于等于指定的最小值
+     被注释的元素必须是一个数字，其值必须小于等于指定的最大值
+  @DecimalMin(walue)/@DecimalMax(value):
+     被注释的元素必须是一个数字，其值必须大于等于指定的最小值
+     被注释的元素必须是一个数字，其值必须小于等于指定的最大值
+  @Size(max，min):
+     被注释的元素的大小必须在指定的范围内
+  @Digits (integer,fraction):
+     被注释的元素必须是一个数字，其值必须在可接受的范围内
+  @Past:
+     被注释的元素必须是一个过去的日期
+  @Future:
+     被注释的元素必须是一个将来的日期
+  @Pattern(value):
+     被注释的元素必须符合指定的正则表达式(验证String)
+

@@ -1,0 +1,5 @@
+#debug: true
+spring:
+  banner:
+    image:
+      location: classpath:tx3.png

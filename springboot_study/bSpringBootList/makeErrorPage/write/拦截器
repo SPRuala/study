@@ -1,0 +1,8 @@
+(StudentInterceptor.java)
+拦截器和spring相同
+需要注册拦截器:
+    1.创建InterceptorConfig类
+    2.添加@Configuration注解
+    3.将Interceptor放入容器
+    4.InterceptorConfig类实现WebMvcConfigurer接口
+    5.重写addInterceptors方法注册拦截器

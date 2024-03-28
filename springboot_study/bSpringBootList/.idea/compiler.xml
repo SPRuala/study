@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bspringboot_yaml" />
+        <module name="bspringboot_mybatis" />
+        <module name="bspringboot_sql" />
+        <module name="bspringboot_dispositionAndFilePosition" />
+        <module name="dependencyInjection_invertsControl" />
+        <module name="fileUpload" />
+        <module name="hikariCP" />
+        <module name="asynchronous" />
+        <module name="getStaticResource" />
+        <module name="makeErrorPage" />
+        <module name="bspringboot" />
+        <module name="interfaceResponse" />
+        <module name="getMybatis" />
+        <module name="makeExceptionAndInterceptorFront" />
+        <module name="mybatisCRUD" />
+        <module name="lombokAndSetLog" />
+        <module name="timeTask" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="asynchronous" target="1.8" />
+      <module name="bspringboot" target="11" />
+      <module name="bspringboot_dispositionAndFilePosition" target="11" />
+      <module name="bspringboot_mybatis" target="1.8" />
+      <module name="bspringboot_sql" target="11" />
+      <module name="bspringboot_yaml" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="dependencyInjection_invertsControl" target="1.8" />
+      <module name="fileUpload" target="1.8" />
+      <module name="getMybatis" target="1.8" />
+      <module name="getStaticResource" target="1.8" />
+      <module name="hicariCP" target="1.8" />
+      <module name="hikariCP" target="1.8" />
+      <module name="interfaceResponse" target="1.8" />
+      <module name="lombokAndSetLog" target="1.8" />
+      <module name="makeErrorPage" target="1.8" />
+      <module name="makeExceptionAndInterceptorFront" target="1.8" />
+      <module name="mybatisCRUD" target="1.8" />
+      <module name="timeTask" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bspringboot" options="-parameters" />
+      <module name="bspringboot_dispositionAndFilePosition" options="-parameters" />
+      <module name="bspringboot_sql" options="-parameters" />
+    </option>
+  </component>
+</project>

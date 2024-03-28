@@ -1,0 +1,2 @@
+spring boot日志开启:
+mybatis.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #Mybatis控制日志操作开关(在控制台打印)(只限开发、生产、测试环境使用)

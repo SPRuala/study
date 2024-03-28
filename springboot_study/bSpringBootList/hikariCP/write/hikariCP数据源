@@ -1,0 +1,11 @@
+流程:
+    1.jdbc依赖引入(数据源默认hikari)
+    2.mysql依赖引入
+    3.yaml配置数据库驱动
+
+
+Bug:
+    bug1:
+        IllegalStateException: Property 'configuration' and 'configLocation' can not specified with together
+        原因:yaml文件中,mybatis配置下,同时存在属性config-location和configuration
+        修改:将引入配置文件的形式改为直接在yaml文件中配置的形式,删除config-location属性和mybatis-config.xml文件

@@ -1,0 +1,12 @@
+1.SpringBoot web请求静态资源---getStaticResource
+2.Lombok提高开发效率以及日志设置---lombokAndSetLog
+3.Restful接口风格---otherWriteInSpring/Restful
+4.接参常用注解---otherWriteInSpring/接参常用注解
+5.SpringBoot接口返回响应对象---interfaceResponse    (++JsonResult响应状态码)
+6.文件上传
+7.自定义异常页面---makeErrorPage
+8.统一异常封装处理---makeErrorPage
+9.拦截器---makeErrorPage
+10.自定义异常与拦截器整合返回Json对象---makeExceptionAndInterceptorFront
+11.定时任务---timeTask
+12.异步任务

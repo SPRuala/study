@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.banner.img.location",
+      "type": "java.lang.String",
+      "description": "Description for spring.banner.img.location."
+  }
+] }

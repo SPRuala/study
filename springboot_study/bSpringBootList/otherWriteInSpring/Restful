@@ -1,0 +1,4 @@
+Get: 查询
+Post: 创建(需axios.post,否则方法不允许)
+Put: 修改
+Delete: 删除

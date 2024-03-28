@@ -1,0 +1,32 @@
+server:
+  port: 8086
+
+#Hikari数据源
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sb_study
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: xyx020717
+    type: com.zaxxer.hikari.HikariDataSource
+
+#mybatis整合
+#注: config-location和configuration只能有一个,在核心配置文件中配置和在yaml文件中配置只能二选一(TAT!!)
+mybatis:
+#  config-location: classpath:com/example/hikaricp/mybatis/mybatis-config.xml #核心配置文件位置
+  mapper-locations: classpath:com/example/hikaricp/mapper/*.xml #mapper映射文件位置
+  configuration: #对应需在<settings>标签内设置的属性
+    map-underscore-to-camel-case: true #开启驼峰命名
+    lazy-loading-enabled: true #延迟加载（和按需加载配套使用）:可以使分步查询的sql语句只执行需要的某一步
+    aggressive-lazy-loading: false #按需加载：如果设定为true，不管需不需要所有属性都会加载sql都会执行。设定为false只加载需要的sql
+#    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl #Mybatis控制日志操作开关(要配log4j2.xml、导log4j2依赖并排除系统自带日志)
+  type-aliases-package: com.example.hikaricp.pojo #包别名;所有数据库表逆向后所映射的实体类
+#通用mapper配置(通用mapper工具内置了最基本的crud,省去了写基础sql语句)
+mapper:
+  mappers: com.bc.getmybatis.my.mapper.MyMapper #所有Mapper都需要实现的接口
+  not-empty: false #为false时: username!=null后不需要继续判断username!=''
+  i-d-e-n-t-i-t-y: MYSQL #方言(MariaDB也属于mysql)
+#分页插件配置
+pagehelper:
+  helper-dialect: mysql #方言
+  support-methods-arguments: true #支持方法中的一些参数

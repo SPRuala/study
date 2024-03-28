@@ -1,0 +1,21 @@
+拦截后将对应的错误返回到前端,让前端做对应的处理: 实现自定义异常,将自定义异常进行统一封装和处理
+
+实现自定义异常:
+    创建异常包、自定义异常类
+    自定义异常类继承RuntimeException,获取异常相应特性并使用
+
+在GraceExceptionHandler中对自定义异常进行拦截:
+    GraceExceptionHandler: 遇到异常会进行拦截,在核心代码中只需返回状态码200时对应的方法,其他状态码交给GraceExceptionHandler自动拦截
+    @ExceptionHandler(StudentException.class)拦截自定义异常
+    return JsonResult.normalError(e.getMessage());返回异常信息
+
+创建异常调用类(GraceException.java):
+    创建静态方法专门用于抛出自定义异常
+    为避免在核心代码中通过new抛出异常,对自定义异常相关做好封装
+    在核心代码中需要抛出自定义相关异常时,可以调用该类的方法
+
+调用顺序:
+    1.StudentException(自定义异常)先被创建
+    2.GraceExceptionHandler对StudentException进行拦截,并返回JsonResult类的异常信息
+    3.GraceException中抛出/调用StudentException
+    4.拦截器中(或需要抛出异常的地方)调用GraceException.displayException()使用自定义异常

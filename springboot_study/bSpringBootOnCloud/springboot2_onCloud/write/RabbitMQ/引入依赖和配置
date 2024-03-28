@@ -1,0 +1,22 @@
+(pom.xml、application.yaml)
+1.引入依赖
+        <!--引入RabbitMQ依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+2.配置yaml文件
+    host配置远端地址:
+        (服务器公网ip地址,如需发布到服务器,则需更改为内网ip)
+        在本地调试时,本地和服务器联通需要通信,必须使用公网ip
+        在发布时,使用公网ip会使用公网的通信方式,公网会比内网带宽更小,如处在高并发时期(流量多),速度会较慢,资源损耗较大
+    port配置端口号:
+        15672为控制台,客户端通信应为5672
+        需在服务器安全组放行5672端口允许远端登录
+    virtual-host配置虚拟主机:
+        选择使用在RabbitMQ管理页面 Admin/Virtual Hosts 中存在的虚拟主机(可新建/删除虚拟主机)
+    username配置RabbitMQ用户名:
+        开启对外访问时添加的用户名
+    password配置RabbitMQ密码:
+        开启对外访问时添加用户的对应密码
+    检查是否配置正确: 重启spring boot项目,控制台无报错,web可正常访问即配置成功(项目启动时会检查yaml文件并对RabbitMQ(基于服务器配置)进行一次通信)

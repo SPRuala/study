@@ -1,0 +1,4 @@
+1.引入ThymeLeaf依赖
+2.创建上传页面fileUpload.html
+3.yaml文件配置ThymeLeaf模板所在位置
+4.创建FileController测试

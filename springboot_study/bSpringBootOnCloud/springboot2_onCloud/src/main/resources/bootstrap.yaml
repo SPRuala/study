@@ -1,0 +1,12 @@
+#bootstrap配置文件
+#该配置文件优先级大于application.yaml
+#需要从配置中心获取配置信息,故要将nacos配置中心的配置信息 配置到bootstrap配置文件中
+#摒弃掉以前使用@Value("${}")获取写死配置的做法,将application中的配置从配置中心拉取(先配置在nacos,才能从中拉取)
+#spring:
+#  cloud:
+#    nacos: #配置Nacos
+#      config:
+#        server-addr: 122.51.6.228:8848 #nacos服务所在地址; (服务器ip:端口号)(若要进行生产部署,则此处公网ip必须换为内网ip)
+#        file-extension: yaml #文件的后缀名(命名格式,和该配置文件后缀相同),会存在于云端nacos中,该值和管理中心页面的 配置格式 选项相同
+#  application:
+#    name: springboot_bc

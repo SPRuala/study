@@ -1,0 +1,26 @@
+整合流程:
+    1.引入mybatis的starter
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>2.1.4</version>
+            </dependency>
+    @EnableConfigurationProperties({MybatisProperties.class}): mybatis配置项和该类绑定
+    MybatisProperties.class:
+        @ConfigurationProperties(prefix = "mybatis")
+    2.编写mapper接口,标注@Mapper注解
+    3.编写mapper映射文件并绑定mapper接口
+    4.配置yaml
+
+
+
+
+bug:
+    1.Caused by: com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: 2 字节的 UTF-8 序列的字节 2 无效。
+        原因:mapper-locations:无法解析路径
+        解决:
+            错误:classpath:com/example/bspringboot_mybatis/mybatis/mapper/*
+            正确:classpath:com/example/bspringboot_mybatis/mybatis/mapper/*.xml
+    2.Property 'configuration' and 'configLocation' can not specified with together
+        原因: configuration和configLocation属性不能同时出现,对于核心配置文件只能在yaml文件中定义或指定配置文件位置
+        springboot中,可以不写核心配置文件,在yaml中直接定义属性值

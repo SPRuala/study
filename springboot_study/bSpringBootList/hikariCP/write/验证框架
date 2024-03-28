@@ -1,0 +1,6 @@
+创建一个业务层对象Bo,接收业务层所需的前端传来的对象参数,再将Bo拷贝给数据层对象,最后进行添加
+
+Bug:
+    bug1:Cannot construct instance of `com.example.hikaricp.bo.UserBO` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+          at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 2, column: 5]
+    原因:spring mvc 传递的对象参数必须要有无参构造函数。Bo对象只写了@AllArgsConstructor创建了有参构造器,没写无参构造函数注解@NoArgsConstructor(或构造函数)

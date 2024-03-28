@@ -1,0 +1,24 @@
+SpringBoot配置文件:
+    1.application.properties
+    2.application.yaml
+    配置文件名称固定
+    两个名称相同的配置文件可以同时存在,但有优先级
+    优先使用properties文件(我properties和yaml都设了端口号,运行时用了properties的)
+SpringBoot配置文件的作用:
+    修改SpringBoot自动配置的默认值
+
+application.properties:
+    官方不推荐使用
+    语法:key=value
+    properties只能保存键值对
+
+application.yaml:
+    SpringBoot官方推荐的全局配置文件
+    语法:key:空格value
+    可以注入到配置类中
+    可以给实体类赋值(对象,键值对,数组,列表....)
+
+YAML:
+    YAML仍是一种标记语言,以数据作为中心
+    语法:key:空格value
+    支持SpringEL表达式

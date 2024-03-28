@@ -1,0 +1,9 @@
+server:
+  port: 8087
+spring:
+  rabbitmq:
+    host: 122.51.6.228
+    port: 5672
+    virtual-host: testRabbitMQ
+    username: ruala
+    password: xyx020717

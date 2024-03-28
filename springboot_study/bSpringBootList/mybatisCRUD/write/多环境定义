@@ -1,0 +1,7 @@
+其他环境命名规范: application-环境名(dev、test、product...)
+spring:
+  profiles: #切换环境
+    active:  #只需写application-的后缀内容
+
+其他环境的yaml文件只需要配置扩展内容,基本配置依然在application.yaml中配置
+环境切换后,再加载切换的环境中的配置(application.yaml之外的)

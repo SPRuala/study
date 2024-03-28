@@ -1,0 +1,14 @@
+com\bc\mybatiscrud\service\impl\UserServiceImpl.class
+com\bc\mybatiscrud\utils\exception\GraceExceptionHandler.class
+com\bc\mybatiscrud\pojo\User.class
+com\bc\mybatiscrud\MybatisCrudApplication.class
+com\bc\mybatiscrud\utils\exception\result\JsonResult.class
+com\bc\mybatiscrud\utils\my\mapper\MyMapper.class
+com\bc\mybatiscrud\bo\UserBo.class
+com\bc\mybatiscrud\aspect\ServiceTimeAspect.class
+com\bc\mybatiscrud\utils\exception\myexception\UserException.class
+com\bc\mybatiscrud\mapper\UserMapper.class
+com\bc\mybatiscrud\service\UserService.class
+com\bc\mybatiscrud\controller\UserController.class
+com\bc\mybatiscrud\utils\makeid\IDMaker.class
+com\bc\mybatiscrud\utils\exception\getthrow\GraceException.class

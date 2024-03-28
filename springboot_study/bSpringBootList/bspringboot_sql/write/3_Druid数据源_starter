@@ -1,0 +1,27 @@
+starter配置:
+   1.导入依赖
+        <dependency>
+           <groupId>com.alibaba</groupId>
+           <artifactId>druid-spring-boot-starter</artifactId>
+           <version>1.1.17</version>
+        </dependency>
+    所有配置和spring.datasource绑定,优先自定义配置
+   2.配置yaml
+
+扩展配置项:
+    spring.datasource.druid
+自动导入包:
+    DruidSpringAopConfiguration.class: 配置Spring监控; 配置属性绑定spring.datasource.druid.aop-patterns
+    DruidStatViewServletConfiguration.class: 配置监控页; 配置属性绑定spring.datasource.druid.stat-view-servlet; 默认监控页功能开启
+    DruidWebStatFilterConfiguration.class: 配置web监控Filter; 配置属性绑定spring.datasource.druid.web-stat-filter; 默认监控开启
+    DruidFilterConfiguration.class:
+        Druid中默认的自身Filter:
+                private static final String FILTER_STAT_PREFIX = "spring.datasource.druid.filter.stat";
+                private static final String FILTER_CONFIG_PREFIX = "spring.datasource.druid.filter.config";
+                private static final String FILTER_ENCODING_PREFIX = "spring.datasource.druid.filter.encoding";
+                private static final String FILTER_SLF4J_PREFIX = "spring.datasource.druid.filter.slf4j";
+                private static final String FILTER_LOG4J_PREFIX = "spring.datasource.druid.filter.log4j";
+                private static final String FILTER_LOG4J2_PREFIX = "spring.datasource.druid.filter.log4j2";
+                private static final String FILTER_COMMONS_LOG_PREFIX = "spring.datasource.druid.filter.commons-log";
+                private static final String FILTER_WALL_PREFIX = "spring.datasource.druid.filter.wall";
+                private static final String FILTER_WALL_CONFIG_PREFIX = "spring.datasource.druid.filter.wall.config";

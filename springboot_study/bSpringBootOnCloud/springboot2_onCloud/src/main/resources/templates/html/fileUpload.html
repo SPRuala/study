@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<div id="index">
+    Hello Index.html
+</div>
+<form action="/uploadFile" method="post" enctype="multipart/form-data">
+    <div>
+        <!--name需要和控制器中的参数做好映射-->
+        <!--accept对接收的文件类型做指定-->
+        <input type="file" id="file" name="file" value="选择文件" accept="image/jpeg,image/jpg,image/png">
+    </div>
+    <div>
+        <input type="submit" value="上传文件"/>
+    </div>
+</form>
+
+图片url连接(点击后会下载):<span th:text="${imgUrl}"/> <br>
+<img th:src="${imgUrl}"/>
+</body>
+</html>

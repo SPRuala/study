@@ -1,0 +1,62 @@
+流程:
+    1.导入数据库开发场景-starter-xxx (*手动)   ---导入spring-boot-starter-data-jdbc/spring-boot-starter-data-jpa(操作底层数据库)
+
+    2.场景自动导入数据库相关配置类 xxxautoconfiguration
+    3.自动导入数据库相关组件: 数据库连接池、datasource数据源
+    4.导入mysql驱动     (*手动)
+    5.绑定properties配置项   (*手动)
+
+自动配置分析:
+    spring-boot-starter-data-jdbc:
+        自动导入了数据库连接池/数据源HikariCP
+        自动导入了spring-jdbc
+        自动导入了spring-tx(管理事务)
+    mysql:
+        SpringBoot对mysql已经做了版本仲裁。
+        但要求本机数据库版本要和驱动版本对应(向下兼容)
+    自动配置的类:
+        1.DataSourceAutoConfiguration: 数据源的自动配置(配好底层要用的数据库连接池)
+            @EnableConfigurationProperties:
+                开启配置文件绑定功能
+                修改数据源相关配置,需修改 spring.datasource 相关数据
+
+            @ConditionalOnMissingBean:
+                没有配置数据源时,该注解下的所有注解才会生效
+                数据库连接池的配置,在自身容器中没有DataSource时才自动装配
+                底层配置好的数据源为HikariDataSource
+
+        DataSourceTransactionManagerAutoConfiguration: 数据源事务管理器的自动配置(Spring底层管理事务的组件)
+        3.JdbcTemplateAutoConfiguration: 在未整合第三方框架操作数据库时,Spring默认使用JdbcTemplate(轻量级操作数据库、高耦合)
+            修改 spring.datasource 可修改JdbcTemplate
+        JndiDataSourceAutoConfiguration: jndi的自动配置
+        XADataSourceAutoConfiguration: 分布式事务相关的自动配置
+maven修改mysql版本:
+        SpringBoot版本仲裁为8.0.33
+        maven就近优先:如果父项目也声明了该依赖的版本,以本项目为主
+    1.maven的就近依赖原则
+        pom.xml中直接修改(添加)依赖版本号<version>8.0.23</version>
+    2.maven属性的就近依赖原则
+        pom.xml中的properties标签中标注要求mysql版本为8.0.23
+    3.重新在spring-boot-dependencies.pom中声明仲裁版本
+
+修改数据源配置(application.yaml):
+    spring:
+      datasource:
+        url: jdbc:mysql://localhost:3306/test
+        username: root
+        password: xyx020717
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+Bug:
+    1.Description:
+      Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+      Reason: Failed to determine a suitable driver class
+
+      Consider the following:
+      	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+      	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+        原因/解决: 没有写数据源的配置文件
+    2.测试类无法自动装配JdbcTemplate
+        原因:JDBC依赖或测试类依赖在引入时和SpringBoot版本不兼容。
+
+

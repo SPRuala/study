@@ -1,0 +1,17 @@
+@NutNull: 不能为null
+@NotEmpty: 校验字符串、集合、Map数组; 不为null也不能为空(传入空格也不行)
+@NotBlank: 字符串不能为空(空格,空字符串也不行)
+@Min(value): 校验数字(int、short、long)最小值范围
+@Max(value): 校验数字(int、short、long)最大值范围
+@Size(max,min): 数组、字符串、集合长度必须在指定范围内
+@Length(min=,max=): 校验字符串,长度必须在min和max范围之内
+@Email: 字符串必须是邮箱格式
+@Range: 数字大小应在指定区间内
+
+需引入依赖:
+        <!--hibernate校验-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+需在所校验的方法的参数前添加@Valid注解

@@ -1,0 +1,10 @@
+前后端分离时,前端应接收异常信息进行处理
+
+1.创建封装异常工具类(GraceExceptionHandler.java)对JsonResult进行调用
+    GraceExceptionHandler: 遇到异常会进行拦截,在核心代码中只需返回状态码200时对应的方法,其他状态码交给GraceExceptionHandler自动拦截
+2.添加@ControllerAdvice注解
+3.方法
+4.方法中添加@ResponseBody和@ExceptionHandler()注解
+5.方法内调用JsonResult工具类返回不同的错误信息
+
+@ExceptionHandler()拦截对应异常-->根据异常返回对应信息给前端

@@ -1,0 +1,23 @@
+流程:
+    1.引入mongodb的依赖
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                </dependency>
+    2.配置yaml
+                spring:
+                  data:
+                      mongodb:
+                        database: test #mongoDB数据库
+                        uri: mongodb://root:xyx020717@122.51.6.228:27010
+                             #mongoDB具体的配置(mongodb://用户名:密码@远端地址:mangodb端口)
+    3.创建mo实体类，并为其添加注解@Document
+    4.创建数据层交互dao接口
+        使用JPA的方式进行数据层的操作,继承MongoRepository后可以使用通用的api方法进行开发
+    5.service层
+    6.创建控制层controller
+
+
+Bug：
+	bug1：Connection refused: connect
+	原因：yaml配置文件端口号写错，uri应为mongodb://root:xyx020717@122.51.6.228:27017

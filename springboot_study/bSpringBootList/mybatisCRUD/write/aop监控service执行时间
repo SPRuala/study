@@ -1,0 +1,15 @@
+配置aop:
+    1.maven导入依赖
+    2.创建AopLogSout类注册
+    3.添加注解@Aspect
+            @Slf4j
+            @Component
+
+aop通知类型:
+    1.前置通知
+    2.后置通知
+    3.环绕通知
+    4.异常通知
+    5.最终通知
+
+监控service执行时间使用环绕通知,切service方法,计算执行前后的时间差

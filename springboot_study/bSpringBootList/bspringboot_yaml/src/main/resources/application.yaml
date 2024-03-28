@@ -1,0 +1,42 @@
+#端口设置
+server:
+  port: 8888
+
+#自定义设置key-value
+name: 朱素葆
+
+#自定义设置对象
+user:
+  username: zsb
+  age: 21
+
+#自定义设置对象行内写法
+user2: {name: zsb2,age: 11}
+
+#自定义数组
+pets:
+  - cat
+  - dog
+  - pig
+
+#自定义数组行内写法
+pets2: [cat,dog,pig]
+
+#yaml属性值注入实体类
+person:
+  #添加引号后,单引号会将 \n 作为字符串输出,双引号会将 \n 作为换行输出
+  name: 朱素葆
+  age: ${random.int} #springEL表达式
+  happy: false
+  birthday: 2002/07/17
+  maps: { k1: v1,k2: v2}
+  list:
+    - 集合1
+    - 集合2
+    - 集合3
+  dog:
+    last-name: 狗${random.uuid}
+    age: 3
+dog:
+  last-name: dogdog
+  age: 22

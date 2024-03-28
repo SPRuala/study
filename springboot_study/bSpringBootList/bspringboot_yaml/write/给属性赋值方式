@@ -1,0 +1,33 @@
+1.实体类内赋值
+    ①@Value()
+    eg:
+        public class Dog {
+            @Value("呜呜")
+            private String name;
+            @Value("6")
+            private Integer age;
+            }
+    ②set方法赋值
+2.实例化赋值
+3.properties赋值
+    @PropertySource(value = "classpath:xxx"):
+        加载指定的配置文件
+        使用该注解后,在每个属性前可用springEL表达式分别赋值
+        eg:
+            @PropertySource(value = "classpath:xxx")
+            public class Person {
+                @Value("${name}")
+                private String name;
+                }
+3.yaml赋值
+    @ConfigurationProperties:
+        使用该注解时,如果没有配置,就会出顶部错误(但不影响程序运行)
+        @ConfigurationProperties(prefix = "person")=>通过前缀属性的person参数将实体类与yaml文件绑定
+        绑定后将配置文件的值,映射到组件中。将本类中的每个属性都和配置文件中的一一绑定
+        yaml赋值本质上底层依然是get set方法赋值
+        值由配置文件去编写,但由java类去生成
+
+Bug:
+    1. .NoSuchBeanDefinitionException: No qualifying bean of type 'Dog' available: expected at least 1 bean which qualifies as autowire candidate.
+    原因:没有找到自动装配的类对应的bean
+    解决:在实体类/对应类中添加@Component注解,添加注解后,才能被Spring识别并扫描

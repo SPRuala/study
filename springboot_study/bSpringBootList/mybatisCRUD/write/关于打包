@@ -1,0 +1,8 @@
+pom.xml配置打包类型
+    war包: 打包成war, 放在外置的, 独立的tomcat里, 让容器去运行
+    jar包: 打包成jar包(默认), 打包后直接丢进服务器运行就可以直接使用
+
+    阿里云url自带打包插件:
+        pom文件修改打包插件的<skip/>标签,此标签默认为true,为true时忽略此打包插件,应修改为false
+
+    命令行运行java程序: java -jar jar包名称

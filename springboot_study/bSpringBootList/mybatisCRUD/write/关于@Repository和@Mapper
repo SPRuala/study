@@ -1,0 +1,27 @@
+@Repository:
+    是spring的注解,标记数据库访问层。标注后会被扫描到ioc容器
+    在mybatis中使用可能会出现问题:
+        spring扫描到后,会将其纳入spring组件,为他在ioc容器中创建对象
+        在mapper接口上使用时,可能会导致mybatis为mapper创建的代理对象(mybatis系列会被mybatis创建代理对象) 被spring的ioc对象顶替
+
+@Mapper:
+    是mybatis的注解
+    Mapper接口注解。
+    在springboot的启动类上使用@MapperScan注解时，和MapperScannerConfigure的作用一样。
+
+正常情况:
+    1.如果Autowire Mapper正常:
+        Mapper接口标@Mapper注解
+    2.如果Autowire Mapper不正常:
+        使用@Mapper+@Repository注解
+    3.想单独使用@Repository注解:
+        Mapper接口使用@Repository注解
+        spring boot启动类使用@MapperScan扫描
+
+trytry:
+    用@Mapper不用@MapperScan √
+    用@Mapper 用@MapperScan √
+    用@Repository不用@MapperScan ×Field userMapper in xxServiceImpl required a bean of type 'xxMapper' that could not be found.
+    用@Repository用@MapperScan ×Field userMapper in xxServiceImpl required a bean of type 'xxMapper' that could not be found.
+    用@Mapper+@Repository 不用@MapperScan √
+    用@Mapper+@Repository 用@MapperScan √

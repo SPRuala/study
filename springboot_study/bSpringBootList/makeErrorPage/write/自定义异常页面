@@ -1,0 +1,20 @@
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+项目发生错误时,默认跳转到/error路由
+Spring Boot默认异常页面为路由页面/error的映射,可针对其进行配置
+
+1.需要templates文件夹
+templates:
+    模板,error页面会作为一个模板存在于templates中
+    对于当前Spring Boot官方推荐模板为Thymeleaf
+2.Thymeleaf依赖引入
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            </dependency>
+
+Bug:
+    bug1:Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf
+    原因: 模板解析错误,模板不存在或无法被任何配置的模板解析器访问,没找到templates文件夹
+    解决: resources路径下创建templates文件夹
+    bug2: errorPage.html不起作用
+    原因: 错误出现时,将/error路由进行映射,命名规范为error.html

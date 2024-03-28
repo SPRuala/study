@@ -1,0 +1,7 @@
+#其他环境的yaml文件只需要配置扩展内容,基本配置依然在application.yaml中配置
+#环境切换后,再加载新增配置
+server:
+  port: 8088
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

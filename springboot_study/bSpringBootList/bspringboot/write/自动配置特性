@@ -1,0 +1,19 @@
+自动配好Tomcat:
+    引入Tomcat依赖：引入web场景时被同时引入进来。并配置
+自动配好SpringMVC:
+    引入SpringMVC全套组件,并配好了SpringMVC常用组件(功能)
+自动配好Web常见功能:
+    SpringBoot配置好了所有web开发的常见场景(字符编码过滤器等..)
+默认包结构:
+    主程序所在的包及下面的所有子包中的组件都会被扫描进来
+    无需配置包扫描
+    若想改变扫描路径,可使用@SpringBootApplication(scanBasePackages="xxx")或@ComponentScan指定扫描路径
+    使用@ComponentScan指定扫描路径:
+        将@SpringBootApplication替换为它的组合注解们：@SpringBootConfiguration+@EnableAutoConfiguration+@ComponentScan
+SpringBoot各种配置都用有默认值:
+    默认配置最终都会映射到MultipartProperties类中
+    配置文件的值最终会绑定到每个类上,这个类最终会在容器中创建对象
+按需加载配置:
+    只在pom中配置了web开发场景,则SpringBoot只会默认开启web中的配置
+    pom中没有引入数据库(mysql)开发场景,则数据库相关配置就不会被开启
+    SpringBoot所有配置都在spring-boot-autoconfigure包下(spring-boot-starter-web => spring-boot-starter => spring-boot-autoconfigure)

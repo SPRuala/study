@@ -1,0 +1,12 @@
+Bug1:
+    The dependencies of some of the beans in the application context form a cycle:
+    ┌──->──┐
+    |  com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration
+    └──<-──┘
+    Action:
+    Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+
+Bug2:
+    通用mapper根据主键查询结果为null
+    原因: @Id注解引用错误,应使用javax.persistence.Id包下的Id,而不是org.springframework.data.annotation.Id

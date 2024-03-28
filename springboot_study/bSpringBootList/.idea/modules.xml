@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/asynchronous/asynchronous.iml" filepath="$PROJECT_DIR$/asynchronous/asynchronous.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bSpringBootList.iml" filepath="$PROJECT_DIR$/bSpringBootList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bspringboot/bspringboot.iml" filepath="$PROJECT_DIR$/bspringboot/bspringboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bspringboot_dispositionAndFilePosition/bspringboot_dispositionAndFilePosition.iml" filepath="$PROJECT_DIR$/bspringboot_dispositionAndFilePosition/bspringboot_dispositionAndFilePosition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bspringboot_mybatis/bspringboot_mybatis.iml" filepath="$PROJECT_DIR$/bspringboot_mybatis/bspringboot_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bspringboot_sql/bspringboot_sql.iml" filepath="$PROJECT_DIR$/bspringboot_sql/bspringboot_sql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bspringboot_yaml/bspringboot_yaml.iml" filepath="$PROJECT_DIR$/bspringboot_yaml/bspringboot_yaml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dependencyInjection_invertsControl/dependencyInjection_invertsControl.iml" filepath="$PROJECT_DIR$/dependencyInjection_invertsControl/dependencyInjection_invertsControl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fileUpload/fileUpload.iml" filepath="$PROJECT_DIR$/fileUpload/fileUpload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/getMybatis/getMybatis.iml" filepath="$PROJECT_DIR$/getMybatis/getMybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/getStaticResource/getStaticResource.iml" filepath="$PROJECT_DIR$/getStaticResource/getStaticResource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hikariCP/hikariCP.iml" filepath="$PROJECT_DIR$/hikariCP/hikariCP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interfaceResponse/interfaceResponse.iml" filepath="$PROJECT_DIR$/interfaceResponse/interfaceResponse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lombokAndSetLog/lombokAndSetLog.iml" filepath="$PROJECT_DIR$/lombokAndSetLog/lombokAndSetLog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/makeErrorPage/makeErrorPage.iml" filepath="$PROJECT_DIR$/makeErrorPage/makeErrorPage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/makeExceptionAndInterceptorFront/makeExceptionAndInterceptorFront.iml" filepath="$PROJECT_DIR$/makeExceptionAndInterceptorFront/makeExceptionAndInterceptorFront.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatisCRUD/mybatisCRUD.iml" filepath="$PROJECT_DIR$/mybatisCRUD/mybatisCRUD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/timeTask/timeTask.iml" filepath="$PROJECT_DIR$/timeTask/timeTask.iml" />
+    </modules>
+  </component>
+</project>

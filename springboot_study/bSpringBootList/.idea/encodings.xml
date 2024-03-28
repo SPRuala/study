@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/asynchronous/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asynchronous/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot_dispositionAndFilePosition/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot_mybatis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot_mybatis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot_sql/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot_sql/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot_yaml/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bspringboot_yaml/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dependencyInjection_invertsControl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dependencyInjection_invertsControl/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fileUpload/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fileUpload/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/getMybatis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/getMybatis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/getStaticResource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/getStaticResource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hikariCP/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hikariCP/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/interfaceResponse/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/interfaceResponse/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lombokAndSetLog/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lombokAndSetLog/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/makeErrorPage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/makeErrorPage/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/makeExceptionAndInterceptorFront/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/makeExceptionAndInterceptorFront/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatisCRUD/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatisCRUD/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/timeTask/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/timeTask/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,22 @@
+配置文件存在路径:
+  file：项目路径
+  classpath：类路径(java或resource)
+  file:./config/  file下的config目录中
+  file:./         file下的根目录中
+  classpath:./config/   类路径下的config目录中
+  classpath:/           类路径下的根目录中
+配置文件优先级:
+  类路径下的config目录>类路径下的根目录>项目路径下的config目录>项目路径下的根目录
+配置环境:
+  application:默认环境
+  application-test:测试环境
+  application-dev:开发环境/生产环境
+  格式:application-xxx
+指定配置环境的使用:
+  spring.profiles.active:SpringBoot的多环境配置,可以选择激活哪一个配置文件
+  激活配置文件的后,使用被激活配置文件的端口,激活后启动端口和默认配置文件端口无关
+  使用场景:每个环境配置了不同的数据库,测试时需要根据开发环境更换
+  yaml:
+      yaml可以实现多文档模块化
+      使用 --- 进行多文件分割
+      使用spring-porfile为每个文件命名 ( 已经不建议使用 )

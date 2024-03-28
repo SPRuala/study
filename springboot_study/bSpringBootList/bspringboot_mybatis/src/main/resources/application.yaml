@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: xyx020717
+
+#先指定mybatis核心配置文件位置和Mapper映射文件位置
+mybatis:
+  config-location: classpath:com/example/bspringboot_mybatis/mybatis/mybatis-cofig.xml
+  mapper-locations: classpath:com/example/bspringboot_mybatis/mybatis/mapper/*.xml
+  type-aliases-package: com/example/bspringboot_mybatis/pojo
+#configuration指定mybatis核心配置文件中的配置项
+#  configuration:
+#    map-underscore-to-camel-case: true #开启驼峰命名
+server:
+  port: 8086

@@ -1,0 +1,70 @@
+springboot核心:
+    自动装配
+
+自动装配的核心:
+    spring-boot-dependencies
+    官网url:核心依赖在parent父工程中
+    阿里云url:核心依赖在pom.xml可直接查看
+    初始化项目的时候，url使用官网版本的会采用继承的parent标签。阿里云是直接通过引用依赖，所以看不到parent标签。
+    在写入或导入springboot依赖时,不需要指定版本。版本在spring-boot-dependencies.pom中被定义
+
+启动器:
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    类似以上依赖都可以被叫做启动器。定义了springboot的启动场景。springboot会将所有的功能场景,都变成一个个启动器
+    eg:
+        spring-boot-starter-web:会帮忙导入web环境下的所有依赖。
+    springboot功能场景:
+        activemq:消息队列
+        aspectJ
+        db2-jdbc:jdbc
+        ehcache3:缓存
+        git-commit
+        freemarker:模板引擎
+        .......
+        可通过pom.xml中spring-boot-dependencies进入spring-boot-dependencies.pom查看
+    若要使用其他功能,只需要找到对应的启动器即可:https://docs.spring.io/spring-boot/docs/2.7.18/reference/html/using.html#using.build-systems.starters
+
+主程序:
+    @SpringBootApplication:
+        标注此类是一个springboot的应用
+        该注解是一个组合注解,包含四个标准注解+@SpringBootConfiguration+@EnableAutoConfiguration+@ComponentScan
+        核心:@SpringBootConfiguration、@EnableAutoConfiguration
+        1.@SpringBootConfiguration:
+            SpringBoot的配置类
+            该注解是一个组合注解,包含了@Configuration
+            @Configuration:
+                Spring的配置类
+                该注解包含一个@Component,说明该类也是一个Spring组件
+        2.@EnableAutoConfiguration:
+            自动导入配置
+            该注解内除了四个标准注解外还包含了@AutoConfigurationPackage+@Import({AutoConfigurationImportSelector.class})
+            ①@AutoConfigurationPackage:
+                自动配置包
+                @Import({Registrar.class}):
+                    自动配置包=>包注册
+                    在Registrar.class内部初始化一些bean:
+                        static class Registrar implements ImportBeanDefinitionRegistrar, DeterminableImports {
+                                Registrar() {
+                                }
+                        public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
+                                    AutoConfigurationPackages.register(registry, (String[])(new AutoConfigurationPackages.PackageImports(metadata)).getPackageNames().toArray(new String[0]));
+                                }
+                        AnnotationMetadata metadata:注册了源数据
+                        PackageImports(metadata)):导入了源数据
+            ②@Import({AutoConfigurationImportSelector.class}):
+                自动配置导入选择。导入了AutoConfigurationImportSelector类
+                AutoConfigurationImportSelector.class:
+                    private Environment environment;//环境
+                    private ResourceLoader resourceLoader;//资源加载器
+                    selectImports方法:选择组件。选择加载配置pom.xml中的依赖。
+                    List<String> configurations = this.getCandidateConfigurations(annotationMetadata, attributes);//获取所有的配置
+    run方法:
+        运行时开启一个服务
+    该类的作用:
+        推断该应用属于普通项目还是web项目
+        查找并加载所有初始化器,设置到initializers属性中
+        找出应用程序的监听器设置到Listener中
+        找到运行主类

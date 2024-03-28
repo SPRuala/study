@@ -1,0 +1,29 @@
+(HelloController.java)
+生产者:
+    由生产者发送消息
+    生产者一般存在于service(业务层)/controller(控制层)
+
+创建生产者:
+    自动装配RabbitTemplate模板
+    创建生产者发送消息
+    匹配路由规则
+    //rabbitTemplate.convertAndSend(exchange,routingKey , obj):发送消息
+            //exchange:交换机名称
+            //routingKey: 路由规则(需和绑定时的路由规则相匹配),通过路由生产者将消息发送给指定交换机,交换机再让接听队列进行处理(不同规则可以让不同接听队列进行处理)
+                        /*RabbitMQ的routingKey:
+                        * bc.msg.*: *=一个占位符,可用于匹配;匹配到后队列自行判断,根据不同的判断做不同的业务处理
+                        *   eg:
+                        *       bc.msg.* 匹配 bc.msg.send
+                        *       bc.msg.*.* 匹配 bc.msg.do.display
+                        *       bc.msg.*.* 匹配 bc.msg.display.send
+                        *       bc.msg.*.*.* 匹配 bc.msg.send.do.display
+                        *
+                        * bc.msg.#: #=多个占位符,可用于匹配;匹配到后队列自行判断,根据不同的判断做不同的业务处理
+                        *   eg:
+                        *       bc.msg.# 匹配 bc.msg.send
+                        *       bc.msg.# 匹配 bc.msg.do.display
+                        *       bc.msg.# 匹配 bc.msg.display.send
+                        *       bc.msg.# 匹配 bc.msg.send.do.display
+                        * */
+            //obj: 发送对象(通常为json字符串)
+            rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_SENDMESSAGE, "bc.msg.send", "发送了一条消息");

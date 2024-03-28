@@ -1,0 +1,31 @@
+关于springboot:
+    springboot中自带热部署,可以通过导入springboot热部署依赖开启热部署
+项目文件:
+    1.BSpringBootApplication:
+        程序的主入口,在@SpringBootApplication注解的作用下会去扫描当前类所在包中的所有文件/包
+    2.application.properties:
+        springboot的核心配置文件
+    3.BSpringBootApplicationTests:
+        单元测试
+启动控制台:
+    Tomcat started on port(s): 8080 (http) with context path '' : Tomcat已经启动在8080端口
+关于Controller:
+    Controller层 : 调用业务,接收前端参数。
+    每个请求映射都可以看作一个接口
+    @RestController : 将所有请求全返回json字符串,返回至页面
+    @RestController=@RequstMapping+@ResponseBody
+关于maven:
+    springboot所有相关依赖都以spring-boot-starter开头
+    web依赖: (spring-boot-starter-web) 自动集成tomcat,DispatcherServlet,xml等配置
+    单元测试: spring-boot-starter-test
+Bug:
+    1.进入localhost:8080会出现
+        Whitelabel Error Page
+        This application has no explicit mapping for /error, so you are seeing this as a fallback.
+      原因:项目中什么都没有,缺少视图(或者其他的？)
+    2.项目打jar包后,在powershell/cmd运行时报错
+        没有主清单属性
+      原因:打包失败
+      解决:pom文件修改打包插件的<skip/>标签,此标签默认为true,为true时忽略此打包插件,应修改为false
+
+

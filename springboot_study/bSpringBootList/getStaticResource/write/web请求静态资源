@@ -1,0 +1,15 @@
+静态资源:
+    路径: src/main/resources/static
+    static路径为SpringBoot自带路径,可直接请求或使用文件夹内的资源,无需配置
+请求图片: /图片名称.后缀
+请求html:/文件名.html
+图片嵌入html可直接使用<img src="./f9f61448f41c37aa63fccbfa122eaf983493077851310422.png" >
+
+不使用自带static路径:
+    在yaml文件中扩展:
+        使用spring.mvc.static-path-pattern节点定义匹配规则(为静态资源规定一个专属的请求层级abc)
+        spring:
+          mvc:
+            static-path-pattern: /abc/**
+    (会使默认请求 / 的首页无法自动跳转 )
+

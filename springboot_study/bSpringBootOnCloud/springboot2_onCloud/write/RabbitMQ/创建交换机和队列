@@ -1,0 +1,8 @@
+(RabbitMQConfig.java)
+RabbitMQConfig.java进行配置:
+模型步骤:
+    1.定义交换机的名称
+    2.定义队列的名称
+    3.创建交换机
+    4.创建队列
+    5.把队列绑定到交换机

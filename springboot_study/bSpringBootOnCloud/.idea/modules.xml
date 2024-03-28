@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bSpringBootOnCloud.iml" filepath="$PROJECT_DIR$/bSpringBootOnCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot2_onCloud/springboot2_onCloud.iml" filepath="$PROJECT_DIR$/springboot2_onCloud/springboot2_onCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testRabbitMQ/testRabbitMQ.iml" filepath="$PROJECT_DIR$/testRabbitMQ/testRabbitMQ.iml" />
+    </modules>
+  </component>
+</project>
