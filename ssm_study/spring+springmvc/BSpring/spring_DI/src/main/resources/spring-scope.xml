@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--作用域-->
+    <!--scope:设置bean的作用域-->
+    <!--prototype：多例-->
+    <!--singleton：单例(默认)-->
+    <!--request：对象在一次请求中有效-->
+    <!--session：对象在一次会话中有效-->
+    <bean id="student" class="com.bc.spring.pojo.Student" scope="prototype">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="张三"></property>
+    </bean>
+</beans>

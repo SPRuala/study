@@ -1,0 +1,19 @@
+配置步骤:
+1.配置web.xml
+2.创建请求控制器Controller
+3.创建SpringMVC控制文件
+
+配置web.xml
+        关于url-pattern：
+                /:浏览器向服务器发送的所有请求,但不能匹配.jsp方式的请求
+                /*:浏览器向服务器发送的任意请求,包括.jsp结尾
+创建请求控制器Controller
+        只需要标识为控制层组件,控制层内的方法就可以通过SpringMVC的方式将它们设置为处理请求的方法
+创建SpringMVC控制文件
+        不用手动获取文件,在DispatcherServlet被初始化时自动加载SpringMVC的配置文件
+        SpringMVC配置文件需名称固定,路径固定
+        名称:<servlet-name>的值-servlet.xml
+关于Thymeleaf：
+        逻辑视图:物理视图 去掉前缀 去掉后缀
+        物理视图:当前要访问页面的完整路径
+        视图只能用转发访问到相应页面

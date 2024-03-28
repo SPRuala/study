@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--init-method：指定对象初始化方法-->
+    <!--destroy-method：指定对象销毁方法-->
+    <bean id="user" class="com.bc.spring.pojo.User" init-method="initMethod" destroy-method="destroy" scope="singleton">
+        <property name="id" value="1"></property>
+        <property name="name" value="哦哦"></property>
+    </bean>
+    <!--将后置处理器配置到ioc容器中-->
+    <bean id="myBeanPostProcessor" class="com.bc.spring.process.MyBeanPostProcessor"></bean>
+</beans>

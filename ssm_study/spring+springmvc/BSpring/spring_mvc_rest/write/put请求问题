@@ -1,0 +1,11 @@
+(RestfulController)
+表单请求时只有get\post,设置put请求:
+        web.xml设置过滤器HiddenHttpMethodFilter
+        HiddenHttpMethodFilter:
+                使用条件(见index.html):
+                        1.原本的请求方式必须为post
+                        2.在当前请求中传输一个请求参数 _method
+                        3.设置_method值为put
+                        4.input传参设置为隐藏域
+浏览器目前只能发送get、post请求,若要发送put、delete请求需要在web.xml配置过滤器HiddenHttpMethodFilter
+

@@ -1,0 +1,14 @@
+FactoryBean
+配置bean类型为FactoryBean    获取时直接获取此工厂所提供的对象
+
+FactoryBean为一个接口,需要创建一个类实现该接口
+            实现时，需重写两个方法：1.getObject()提供一个对象交给ioc容器管理
+                               2.getObjectType()设置提供对象类型
+                               3.isSingleton:所提供的对象是否单例(不一定需要重写)
+            当把FactoryBean的实现类配置为bean时，会将当前类中getObject()所返回的对象交给ioc容器管理
+
+普通工厂:
+            先把工厂配置为一个bean
+            获取工厂对应的对象
+            通过工厂获取工厂所提供的对象
+

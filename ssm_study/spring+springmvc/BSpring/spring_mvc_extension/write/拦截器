@@ -1,0 +1,45 @@
+拦截器
+        和过滤器的区别:
+                过滤器:
+		                浏览器和目标资源间进行过滤
+		                由过滤器过滤后由DispactherServlet处理
+		                DispactherServlet根据请求信息使用@RequestMapping匹配控制器方法
+		                在DispactherServlet调用控制器方法
+		        拦截器:
+		                三个方法:
+				                preHandle：
+				                        控制器方法执行之前执行,返回值表示控制器方法的拦截和放行
+				                        返回值为false-->拦截,控制器方法不执行
+				                        返回值为true-->放行
+				                postHandle：控制器方法执行之后执行
+				                afterCompletion：渲染完视图后执行
+	    拦截器配置:
+	            1.实现HandlerInterceptor接口(重写三个方法(有默认方法体))
+	            2.springmvc配置文件设置<mvc:interceptors/>标签
+                        <mvc:interceptors/>:
+                                bean:把当前某个类配置为拦截器
+                                ref:引用。值为某个bean的id,将其设为拦截器
+                                mvc:interceptor :
+                                        mvc:mapping path :设置需要拦截请求的路径(/*:上下文路径下 一层目录的请求   /**:所有请求)
+                                        mvc:exclude-mapping path :排除对某个请求资源的拦截
+                                        ref/bean:设置要使用的拦截器
+
+                3.注解+扫描+<mvc:interceptors/>ref引用
+                        (扫描后默认id为小驼峰)
+        请求拦截:
+                bean和ref拦截器默认对DispatcherServlet处理的所有请求进行拦截
+                mvc:interceptor:自定义
+        多个拦截器执行顺序:
+                和springmvc的配置文件中配置的顺序有关
+                        preHandle:按照配置的顺序执行
+                        postHandle:按照配置的反序执行
+                        afterCompletion:按照配置的反序执行
+        若拦截器中 有某个拦截器的preHandle方法返回了false:
+                拦截器的preHandle返回false和它之前的拦截器preHandle方法都会执行
+                所有拦截器的postHandle都不执行
+                拦截器的preHandle返回false之前的拦截器的afterCompletion会执行
+
+
+
+
+

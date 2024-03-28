@@ -1,0 +1,33 @@
+SpringMVC处理ajax异步请求
+        两种使用方法
+                1.直接使用axios方法
+                        在{}中对axios进行配置 url:""请求路径、method:""请求方式、params:{}请求参数、data:{}请求参数
+                        params:以name=value&name=value的方式发送请求参数,请求参数都会被拼接到请求地址后，可通过getParameter获取
+                        data:发送到服务器一个json格式的请求参数,请求参数会被保存到请求报文的请求体传输到服务器(只有post有请求体),需使用处理json的jar包将请求参数转换为对象获取(mybatis实验一)
+                        服务器响应浏览器的数据被封装到response.data属性中
+                         axios({
+                                            url:"",
+                                            method:"",
+                                            params:{},
+                                            data:{}
+                                        }).then(response=>{
+                                            console.log(response.data)
+                                        });
+                2.使用axios.get/post()方法
+                         mybatis实验一的vue
+                         axios#get(url[, config])  url:请求地址  config:配置 (get方式发送请求只需知道url)
+                         axios#post(url[, data[, config]])
+                         只有post有data型传参
+                         不管get、post使用param传参时,可拼接到url中
+                         eg:
+                         axios({
+                                                 method: "post",
+                                                 url: "api/StudentServlet",
+                                                 data:'sname='+sname+'&scid='+scid'
+                                             }).then(function (resp) {
+                                                       ....
+                                             });
+        控制器写法:
+                ajax局部刷新,服务器中不能以转发和重定向作为结果。
+                方法为void 不需要返回值
+                使用以前的方法 response.getWriter().write("hello,axios");

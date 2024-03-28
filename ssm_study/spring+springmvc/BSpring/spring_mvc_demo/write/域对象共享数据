@@ -1,0 +1,41 @@
+(ScopeController)
+域对象:
+        PageContext:jsp页面的范围
+        HttpServletRequest:一次请求的范围
+        HttpSession:一次会话的范围
+        ServletContext(Application):整个应用的范围
+————————————————————————————————————————————————————————————————————————————
+域对象共享数据(向请求域):
+        1.ServletAPI
+        2.ModelAndView
+        3.Model
+        4.Map
+        5.ModelMap
+        不管用什么方法共享数据,最后都会把共享的数据和视图封装为ModelAndView对象
+        Model、Map、ModelMap用的类均为BindingAwareModelMap
+ModelAndView:
+        使用ModelAndView共享数据时,必须将ModelAndView进行返回
+        ModelAndView包含Model和View的功能:
+                Model:向请求域中共享数据
+                View:设置逻辑视图,实现页面跳转
+Model:
+        使用Model时，只是使用ModelAndView中的Model功能,只许返回String类型即可
+        Model是接口,放在控制器方法的形参位置,在DispatcherServlet调用该方法时自动创建model对象
+ModelMap:
+        同Model
+Map:
+        同Model、ModelMap
+        将AttributeName作为键,AttributeValue作为值
+————————————————————————————————————————————————————————————————————————————
+域对象共享数据(向session域):
+        直接使用ServletAPI
+        1.HttpSession放在形参中,控制器内直接session.setAttribute
+        2.HttpRequest放在形参中,控制器内先.getSession();再session.setAttribute
+        在thymeleaf获取session域数据时,应在el表达式中加session.前缀
+        浏览器关闭前,session域中的数据一直都在
+————————————————————————————————————————————————————————————————————————————
+域对象共享数据(向application域):
+        直接使用ServletAPI
+        HttpRequest放在形参中,控制器内先.getServletContext();再servletContext.setAttribute
+        在thymeleaf获取session域数据时,应在el表达式中加session.前缀
+        服务器关闭前,application域中的数据一直都在

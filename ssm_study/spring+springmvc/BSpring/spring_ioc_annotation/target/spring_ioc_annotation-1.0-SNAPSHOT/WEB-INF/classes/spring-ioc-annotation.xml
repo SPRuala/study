@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+>
+    <!--通过注解+扫描配置的bean的id 默认为类的小驼峰-->
+    <!--自定义id：通过标识组件的注解的value属性值设置bean的自定义id-->
+
+
+
+    <!--扫描组件-->
+    <!--扫描越精确，扫描花费时间越短-->
+    <!--component-scan:组件扫描 通过包来扫描  将包下的所有类进行扫描-->
+    <!--精确到每个包扫描时，包与包之间使用 , 分割-->
+    <!--放大扫描-->
+
+    <!--context:exclude-filter :排除扫描-->
+    <!--context:include-filter :包含对xxx的扫描-->
+
+    <!--type：根据什么排除/包含-->
+    <!--annotation:根据注解的类型进行排除/包含(常用)-->
+    <!--assignable:根据类进行排除-->
+    <!--expression:排除类/类型的全类名-->
+
+    <!--设置只包含谁时必须设置use-default-filters="false"-->
+    <!--use-default-filters:使用默认的过滤规则   true默认包下所有的类都进行扫描（所以设置只包含谁没用） false包下所有的类都不扫描-->
+    <context:component-scan base-package="com.bc.spring" use-default-filters="true">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+<!--        <context:exclude-filter type="assignable" expression="com.bc.spring.controller.UserController"/>-->
+<!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    </context:component-scan>
+
+
+
+    <!--常用-->
+    <context:component-scan base-package="com.bc.spring">
+        <!--在这里添加排除项...-->
+    </context:component-scan>
+
+    <!--测试@Autowired但是一个类型有多个bean-->
+  <!--  <bean id="service" class="com.bc.spring.service.impl.UserServiceImpl"></bean>
+    <bean id="dao" class="com.bc.spring.dao.impl.UserDaoImpl"></bean>-->
+</beans>

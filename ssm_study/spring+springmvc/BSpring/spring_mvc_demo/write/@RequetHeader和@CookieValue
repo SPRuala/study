@@ -1,0 +1,32 @@
+@RequestHeader
+        请求头信息和控制器形参绑定
+        eg:@RequestHeader("referer") String referer
+                将请求头信息中的referer键中所对应的值和形参referer进行绑定
+                属性:
+                        required:默认值为true。为true时该请求头必须被传递
+                        defaultValue:在没有请求头的情况下设置默认值并赋值给形参
+@CookieValue
+        cookie数据和控制器方法的形参绑定
+关于session和cookie
+        session以cookie为基础
+        HttpSession:
+                session在创建时：1.第一次获取session时->request.getSession()
+                               2.此时检测当前请求报文是否携带JsessionId的cookie:
+                                        携带:
+                                        未携带:在服务器中创建一个带有JsessionId的cookie
+                                              创建一个HttpSession对象
+                               3.把HttpSession对象存储到服务器的Map集合中
+                                        键:JsessionId(cookie的值)(一个随机序列)
+                                        值:session对象
+                               4.把cookie相应到浏览器
+                               5.此后每次发送请求到服务器都会携带JsessionId的cookie
+                               6.有了该cookie后,可以获取它的值
+                               7.在服务器维护的Map集合中以随机序列作为键 获取Map的值(当前存储的唯一一个session对象)
+        eg:
+        头信息Set-Cookie:JSESSIONID=D98866E61D1E099CD8344640B225A0ED;
+                         Path=/SpringMVC; HttpOnly
+                         (其中Path为有效路径)
+                         (其中Set-Cookie只有在第一次获取时会出现在标头中)
+        请求报文会携带cookie:JSESSIONID=D98866E61D1E099CD8344640B225A0ED
+
+        在某一方法中获取过session对象后,以后的请求报文就会携带cookie数据

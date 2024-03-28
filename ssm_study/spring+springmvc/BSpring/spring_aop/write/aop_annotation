@@ -1,0 +1,37 @@
+aop准备工作:
+1.在ioc依赖的基础上添加aop依赖(aop要在ioc的基础上实现)
+2.准备被代理的目标资源(接口、实现类)
+3.创建切面类
+4.将切面、目标对象交给ioc容器管理
+    (注解+扫描):
+            目标对象可用@Component标识为普通组件
+            切面类需用@Aspect将当前组件标识为切面
+            需在xml文件中配置aop命名空间,aspectj-autoproxy开启基于注解的aop功能
+            需在xml文件中配置context命名空间,component-scan开启扫描
+5.创建通知
+    前置通知：@Before()
+    ():切入点表达式,()中为 "execution(public 方法返回值类型 方法所在的路径(传参类型))"
+6.通过切入点表达式把通知作用在连接点
+
+
+关于切面：
+    1.写法:
+        前置通知 @Before(切入点表达式):
+                1.前置通知作用于具体方法:
+                @Before("execution(public int com.bc.spring.aop.annotation.CalculatorImpl.add(int ,int ))")
+                2.前置通知作用于所有方法:
+                *:任意访问修饰符、返回值类型、包下所有的类、类中的所有方法
+                ():方法的参数列表
+                ..:任意方法中的任意参数列表
+                @Before("execution(* com.bc.spring.aop.annotation.CalculatorImpl.*(..))")
+    2.获取连接点信息
+        joinPoint:帮助获取连接点信息,切入点表达的是哪个方法JoinPoint就表达该方法的信息
+        joinPoint.proceed(): 表示目标对象方法的执行,返回result
+        joinPoint.getSignature():获取连接点对应方法的签名信息
+        joinPoint.getSignature().getName():获取连接点对应方法的方法名
+        joinPoint.getArgs():获取连接点对应方法的参数内存地址
+        Arrays.toString(joinPoint.getArgs()):获取连接点对应方法的参数
+    3.切入点表达式的重用
+        @Pointcut声明一个重用(公共)的切入点表达式(写法同普通注解表达式)
+        使用方式(eg):
+                @Before("使用了重用注解的方法名")

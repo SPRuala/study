@@ -1,0 +1,7 @@
+()
+SpringMVC的视图:
+        1.ThymeleafView
+                若配置了Thymeleaf的视图解析器,由此解析器解析之后得到的是ThymeleafView
+        2.转发视图
+        3.重定向视图
+        4.视图控制器view-controller

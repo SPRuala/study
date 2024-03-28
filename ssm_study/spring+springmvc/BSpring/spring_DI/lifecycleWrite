@@ -1,0 +1,18 @@
+被ioc容器管理的对象 的生命周期
+1：实例化
+2：依赖注入
+(2.5):后置处理器的postProcessBeforeInitialization
+3：初始化：需要bean的initMethod指定初始化的方法
+(3.5):后置处理器的postProcessAfterInitialization
+4：(使用)销毁：ioc容器关闭时销毁 需要bean的destroyMethod指定销毁的方法
+
+单例：
+    单例 （实例化、依赖注入、初始化）均在ioc容器被获取时 提前进行创建
+    多例 （实例化、依赖注入、初始化）在获取bean时被创建
+          销毁不由ioc容器管理
+
+bean的后置处理器
+    在bean对象初始化前后增加两个额外的操作
+    需要实现BeamPostProcessor接口
+    要配置到ioc容器中
+    (后置处理器针对每个bean都有额外的注意)

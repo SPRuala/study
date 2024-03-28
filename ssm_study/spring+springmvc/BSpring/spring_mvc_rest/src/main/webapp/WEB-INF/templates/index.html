@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>index.html</h1>
+<a href="user">查询所有用户信息</a> <br>
+<a href="user/1">查询id为1的用户信息</a> <br>
+添加用户信息
+<form action="user" method="post">
+    <input type="submit" value="添加用户信息">
+</form>
+<br>
+<!--put请求:-->
+    <!--原本请求方式必须为post-->
+    <!--必须传参method,value值为真正的请求方式put-->
+    <!--设置为隐藏域-->
+修改用户信息
+<form action="user" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" value="修改用户信息">
+</form>
+<br>
+删除用户信息
+<form action="user/5" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="删除用户信息">
+</form>
+</body>
+</html>

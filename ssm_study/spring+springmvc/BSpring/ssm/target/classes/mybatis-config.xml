@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+    <!--引入properties文件，在此文件中使用的方式访问value-->
+    <!--properties文件在spring中被引入-->
+
+    <!--自动将下划线映射为驼峰(字段名和属性名不一致的情况下eg：dept_id=deptId),使用此方法不用将mapper文件中的sql语句设别名-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--配置分页插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <!--别名在spring中配置了-->
+
+
+    <!-- 连接数据库的配置 -->
+    <!--连数据源.管理数据库链接-->
+    <!--数据源在spring里被配置-->
+
+    <!--数据源连接后-->
+    <!--   当数据库连接后，加载映射文件-->
+
+    <!--引入映射文件配置在spring-->
+
+
+</configuration>

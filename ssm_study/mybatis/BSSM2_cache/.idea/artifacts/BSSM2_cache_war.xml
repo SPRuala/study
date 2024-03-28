@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="BSSM2_cache:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>BSSM2_cache</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="BSSM2_cache-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="BSSM2_cache:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+    <!--引入properties文件，在此文件中使用的方式访问value-->
+    <properties resource="jdbc.properties"/>
+
+
+
+    <!--自动将下划线映射为驼峰(字段名和属性名不一致的情况下eg：dept_id=deptId),使用此方法不用将mapper文件中的sql语句设别名-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 使用Mybatis控制日志操作开关 -->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+
+
+
+    <typeAliases>
+        <package name="com.bc.mybatis.pojo"/><!--通过包设置别名 在此包下所有类将拥有默认别名（不分大小写的类名）-->
+    </typeAliases>
+
+    <!--配置分页插件-->
+    <!--PageInterceptor拦截器-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+
+    <!-- 连接数据库的配置 -->
+    <!--连数据源.管理数据库链接-->
+    <environments default="default">
+        <environment id="default">
+            <transactionManager type="JDBC"/><!-- 默认的事务处理操作 -->
+            <dataSource type="POOLED"><!-- 使用数据库的连接池子方式 -->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <!--数据源连接后-->
+    <!--   当数据库连接后，加载映射文件-->
+    <mappers>
+
+        <package name="com.bc.mybatis.mapper"/><!--通过包引入映射文件（方便映射文件过多的情况） 要求：mapper接口和映射文件包名必须一致，接口和文件名字必须一致-->
+    </mappers>
+
+</configuration>

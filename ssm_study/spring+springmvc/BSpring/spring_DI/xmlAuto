@@ -1,0 +1,22 @@
+基于xml自动装配(只针对类类型属性和接口类型属性)
+
+根据指定策略在ioc容器匹配相应的bean，自动为bean中类类型属性和接口类型属性赋值
+不需要再写property标签 指定属性
+
+自动装配的策略：
+            通过bean标签中autowire设置
+            1.no、default：不装配  bean中的属性不会匹配某个bean为属性赋值 属性使用默认值
+            2.byType：根据当前要赋值的属性的类型 在ioc容器中匹配某个bean 为属性赋值
+            bug：java.lang.NullPointerException
+            原因：byType通过ioc没有可匹配该类型的bean，采取不装配，使用了默认值null
+            bug:NoUniqueBeanDefinitionException
+            原因：自动装配byType时bean类型有重复
+            3.byName：将要赋值的属性的属性名作为bean的id 在ioc容器中寻找某个bean为它赋值
+                      (byName如果可以成功，byType也可以成功)
+                      当类型匹配的bean有多个时，此时可以使用byName实现自动装配
+
+设置自动装配之后 该bean中所有类类型的属性都会在ioc容器中找到所匹配的bean 自动为当前属性赋值
+
+三层架构：
+        控制层调用service 处理业务逻辑
+        service调用dao   实现持久化操作

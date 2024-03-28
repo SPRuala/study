@@ -1,0 +1,25 @@
+依赖注入dependenceInjection（DI）
+
+是ioc具体的实现方式 可以在ioc容器中为类所依赖的属性赋值
+
+依赖注入：在ioc容器中为类所依赖的属性赋值的过程
+
+给类所依赖的属性赋值：1.set注入: set方法注入     可以不给实力类的某个属性赋值（不像构造器注入 只是set属性：调用属性并给它赋值）
+                  2.构造器注入:匹配哪个有参构造由bean中constructor-arg标签赋值个数决定（和构造方法的参数个数对应）
+                             有数量相同的多个构造器时 可以用name标签指定参数赋值
+给类所依赖的类对象属性赋值：
+                    1.ref引用(常用)
+                    2.级联
+                    bug： Invalid property 'clazz' of bean class [com.bc.spring.pojo.Student]: Value of nested property 'clazz' is null
+                    解决：应先给clazz赋值 在Student实体类中实例化Clazz对象（clazz）或 在bean中先给clazz赋值
+                    3.内部bean(常用) 不能通过ioc容器直接获取内部bean 只能存在内部
+                    bug:NoSuchBeanDefinitionException: No bean named 'clazzInner' available
+                    解决：内部bean只能在bean的内部使用 无法通过ioc容器获取
+给类所依赖的数组属性赋值
+                    array
+           给集合赋值
+                    1.List
+                    2.Map
+
+p命名空间
+

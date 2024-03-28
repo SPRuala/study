@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/employee}" method="post">
+    <!--修改表单均通过thymeleaf回显-->
+    <input type="hidden" name="_method" value="put">
+    <!--根据id修改 ,thymeleaf中通过属性控制页面中的内热-->
+    <!--隐藏域id-->
+    <input type="hidden" name="id" th:value="${employee.id}">
+    <table>
+        <tr>
+            <th colspan="2">add employee</th>
+        </tr>
+        <tr>
+            <td>lastName</td>
+            <td><input type="text" name="lastName" th:value="${employee.lastName}"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input type="text" name="email" th:value="${employee.email}"></td>
+        </tr>
+        <tr>
+            <!--单选框回显:th:field="${employee.gender}-->
+            <!--如果单选框属性值和某个value相同,则会被选中-->
+            <td>gender</td>
+            <td><input type="radio" name="gender" value="1" th:field="${employee.gender}">男</td>
+            <td><input type="radio" name="gender" value="0" th:field="${employee.gender}">女</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="update">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

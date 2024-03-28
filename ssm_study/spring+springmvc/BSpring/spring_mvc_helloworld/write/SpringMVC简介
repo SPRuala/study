@@ -1,0 +1,10 @@
+SpringMVC
+三层架构：
+	表述层/表示层：页面+Servlet
+	业务逻辑层
+	数据访问层
+
+SpringMVC封装了Servlet、不需要手动创建Servlet
+	  底层获取数据：getParameter
+	   底层转发：request.getRequestDisPacth().forword()
+	  可插拔式组件

@@ -1,0 +1,41 @@
+基于注解(注解+扫描)
+把类交给ioc容器管理需要的注解：
+    加上这些注解 并扫描后 就可以将加上注解的类 作为一个bean被ioc容器管理
+        @Component：将类标识为普通组件
+        @Controller：将类标识为控制层组件
+        @Service：将类标识为业务层组件
+        @Repository：将类标识为持久层组件
+
+    @Controller、@Service、@Repository都是由@Component扩展出来的
+
+    对于spring来说以上注解没有区别
+
+扫描：
+    在配置文件中扫描
+    使spring了解哪些类加了注解/加了哪些注解
+
+注解+扫描后 注解自动装配
+@Autowired
+            标识位置：
+                    成员变量。注解自动装配时不需要实现成员变量的getset方法
+                    set方法。
+                    为成员变量赋值的有参构造上
+            原理：
+                    1.默认通过byType的方式在ioc容器中通过类型匹配某个bean为成员变量（属性）赋值
+                    2.若有多个类型匹配的bean Autowired会自动转换为byName的的方式自动装配
+                    3.若byType和byName的方式都无法实现自动装配(属性名都不一致)
+                    抛出异常：NoUniqueBeanDefinitionExceptionioc容器中有多个类型匹配的bean且这些bean的id和要赋值的
+                    解决：
+                        在要赋值的成员变量上添加@Qualifier  指定一个bean的id为当前属性赋值
+                    4.若没有bean可以被匹配(eg忘记写注解的情况、一个类型多个bean但是没有指定匹配id的情况)
+                    抛出异常：NoSuchBeanDefinitionException
+                    5.Autowired属性required=false的同时 没有bean可以被匹配
+                    抛出异常:NullPointerException
+
+
+
+
+注解+扫描+自动装配顺序
+1.加@Controller、@Service、@Repository
+2.xml配置扫描<context:component-scan/>
+3.成员变量配置@Autowired

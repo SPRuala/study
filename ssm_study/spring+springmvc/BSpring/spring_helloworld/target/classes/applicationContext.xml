@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--约束（命名空间）：根据不同约束使用不同标签-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    bean代表spring中的一个组件 一个bean表示一个对象-->
+<!--    将类交给ioc容器管理-->
+<!--    id:唯一标识 一个id对应一个类-->
+<!--    class:设置bean对象所对应的类型-->
+    <bean id="helloworld" class="com.bc.spring.pojo.HelloWorld"></bean>
+
+</beans>

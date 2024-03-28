@@ -1,0 +1,13 @@
+JDBCTemplate
+    JDBCTemplate:实现对数据库的操作
+    JDBCTemplate本质为一个对象,须交给ioc容器管理
+    无法扫描:第三方jar包无法在源代码中添加注解,故需要使用xml配置
+    .update：
+        能实现对数据库的增加、删除、修改
+    .queryForObject:
+        能实现对数据库的查询
+        RowMapper<T>:设置数据和实体类的映射关系(查询结果要转换为什么样的实体类对象)
+    .query:
+        能实现对数据库的查询
+        返回一个List集合
+        也需要设置映射集合

@@ -1,0 +1,18 @@
+spring整合junit
+        使测试类可以在spring的环境中执行,此时不用每次都获取ioc容器
+        maven:
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.1</version>
+        </dependency>
+        测试类中需添加@RunWith.@ContextConfiguration
+            @RunWith:
+                value中设置测试类的运行环境
+                SpringJUnit4ClassRunner.class=>指定当前测试类在spring的测试环境中执行,此时可以通过注入的方式直接获取ioc容器中的bean
+            @ContextConfiguration:
+                value中设置spring的配置文件
+                设置当前Spring测试环境的配置文件
+                value中需设置添加classpath:=》类路径
+        直接通过自动装配通过ioc对应的配置文件spring-jdbc.xml为JdbcTemplate赋值
+        当前jar包为junit版本为4.x,为Spring整合Junit4;Spring也可以整合Junit5,只是jar包不同,使用的注解(@RunWith)也不同(@ExtendWith)

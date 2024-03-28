@@ -1,0 +1,6 @@
+Spring管理数据源
+
+将数据源交给ioc管理（需添加依赖 Mysql驱动+德鲁伊）
+bug:
+    Access denied for user 'root'@'localhost' (using password: YES)
+    数据库密码错了

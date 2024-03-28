@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BSpring.iml" filepath="$PROJECT_DIR$/BSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_DI/spring_DI.iml" filepath="$PROJECT_DIR$/spring_DI/spring_DI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_aop/spring_aop.iml" filepath="$PROJECT_DIR$/spring_aop/spring_aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_helloworld/spring_helloworld.iml" filepath="$PROJECT_DIR$/spring_helloworld/spring_helloworld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ioc_annotation/spring_ioc_annotation.iml" filepath="$PROJECT_DIR$/spring_ioc_annotation/spring_ioc_annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ioc_xml/spring_ioc_xml.iml" filepath="$PROJECT_DIR$/spring_ioc_xml/spring_ioc_xml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_ajax/spring_mvc_ajax.iml" filepath="$PROJECT_DIR$/spring_mvc_ajax/spring_mvc_ajax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_annotation/spring_mvc_annotation.iml" filepath="$PROJECT_DIR$/spring_mvc_annotation/spring_mvc_annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_demo/spring_mvc_demo.iml" filepath="$PROJECT_DIR$/spring_mvc_demo/spring_mvc_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_extension/spring_mvc_extension.iml" filepath="$PROJECT_DIR$/spring_mvc_extension/spring_mvc_extension.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_helloworld/spring_mvc_helloworld.iml" filepath="$PROJECT_DIR$/spring_mvc_helloworld/spring_mvc_helloworld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_rest/spring_mvc_rest.iml" filepath="$PROJECT_DIR$/spring_mvc_rest/spring_mvc_rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mvc_restEg/spring_mvc_restEg.iml" filepath="$PROJECT_DIR$/spring_mvc_restEg/spring_mvc_restEg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_proxy/spring_proxy.iml" filepath="$PROJECT_DIR$/spring_proxy/spring_proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_transaction/spring_transaction.iml" filepath="$PROJECT_DIR$/spring_transaction/spring_transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm/ssm.iml" filepath="$PROJECT_DIR$/ssm/ssm.iml" />
+    </modules>
+  </component>
+</project>

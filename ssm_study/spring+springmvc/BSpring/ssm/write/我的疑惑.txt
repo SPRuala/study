@@ -1,0 +1,11 @@
+service->Mapper
+	自动装配直接自动从ioc容器中获取配置时创建好的SqlSessionFactory的sqlSession对象和Mapper对象
+	（不装配写法：1.先从流中获取mybatis核心配置文件=spring中接管的SqlSessionFactoryBean里的configLocation属性）
+		     （2.实例化SqlSessionFactoryBuilder）
+		       (3.sqlSessionFactoryBuilder.build(获取好核心文件的对象))
+		       (4.opensession）
+		       (5.getSqlSession)
+		       (6.getMapper)
+	可以直接调用employeeMapper的方法。（employeeMapper.xxx）
+controller->service
+	

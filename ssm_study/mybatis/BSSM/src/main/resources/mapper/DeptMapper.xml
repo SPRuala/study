@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--声明映射文件的命名空间（区分用）-->
+<mapper namespace="mapper.DeptMapper"> <!--往往和文件名一致（给文件里的所有操作起名）-->
+
+    <resultMap id="deptresultMap" type="Dept">
+        <id column="dept_id" property="deptId"/>
+        <result column="dept_name" property="deptName"/>
+    </resultMap>
+    <!--resultMap自定义映射 resultType写具体类型，resultMap里写此标签的id↑ 自定义映射需指定哪个标签对应哪个属性-->
+    <select id="getDeptByDeptId" resultMap="deptresultMap">
+        select * from dept where dept_id=#{deptId}
+    </select>
+
+    <select id="getEmpAndDeptByStepMethoudThreeSteptwo" resultType="Dept">
+        select *from dept where dept_id=#{deptId}
+    </select>
+<!--——————————————————————————————————————-->
+    <!--一对多查询-->
+    <!--1.collection-->
+    <!--resultMap的Type处理Dept类型。因为Dept里有一个Emp集合需要映射处理-->
+    <resultMap id="getDeptAndEmpByDeptIdMap" type="Dept">
+        <id column="dept_id" property="deptId"/>
+        <result column="dept_name" property="deptName"/>
+        <!--用collection对集合类属性进行映射。-->
+        <collection property="emps" ofType="Emp">
+            <id column="empno" property="empno"/>
+            <result column="mgr" property="mgr"/>
+            <result column="deptno" property="deptno"/>
+            <result column="ename" property="ename"/>
+            <result column="job" property="job"/>
+            <result column="hiredate" property="hiredate"/>
+            <result column="sal" property="sal"/>
+            <result column="comm" property="comm"/>
+        </collection>
+    </resultMap>
+    <select id="getDeptAndEmpByDeptId" resultMap="getDeptAndEmpByDeptIdMap">
+        SELECT * FROM dept LEFT JOIN emp ON emp.deptno=dept.dept_id WHERE dept_id=#{deptId};
+    </select>
+
+    <!--2.分步查询-->
+    <!--通过分步查询查找部门信息和该部门所在的员工信息(第一步)-->
+    <resultMap id="getDeptAndEmpByDeptIdMapStep" type="Dept">
+        <id column="dept_id" property="deptId"/>
+        <result column="dept_name" property="deptName"/>
+        <collection property="emps" select="mapper.EmpMapper.getDeptAndEmpByDeptIdSteptwo" column="dept_id">
+        </collection>
+    </resultMap>
+    <select id="getDeptAndEmpByDeptIdStepone" resultMap="getDeptAndEmpByDeptIdMapStep" >
+        select * from dept where dept_id=#{deptId}
+    </select>
+</mapper>

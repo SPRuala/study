@@ -1,0 +1,87 @@
+步骤:
+1.配置文件
+        1.1配置maven:
+                spring:
+                        上下文依赖
+                        bean管理
+                springmvc:
+                        web相关依赖 spring-web
+                        webmvc    spring-webmvc
+                        jdbc
+                        aspects管理切面
+                        spring整合junit
+                        文件上传
+                        spring整合thymeleaf包
+                mybatis:
+                        mybatis核心
+                        mybatis和spring整合包
+                        数据库连接池
+                        junit测试依赖
+                        mysql驱动
+                        log4j日志
+                        分页插件
+                        日志  logback
+                其他:
+                        jackson依赖
+                        servletAPI
+        1.2配置web.xml
+                过滤器:
+                        Spring编码过滤器
+                        处理请求方式的过滤器
+                前端控制器:
+                        SpringMVC前端控制器DispatcherServlet
+                spring监听器:
+                        Spring监听器
+                为spring配置自定义位置和名称的标签:
+                         <context-param/>
+        1.3创建spring、springmvc配置文件
+
+2.搭建框架
+        通过spring整合mybatis和springmvc
+        2.1搭建springMVC
+                配置springmvc配置文件:
+                        组件化,需要什么配置什么标签(组件)
+                        *扫描控制层组件(只有控制层交给springmvc管理,其他层交给spring)
+                        *视图解析器,创建页面目录
+                        *静态资源管理
+                        *开启mvc注解驱动
+                        *视图控制器
+                         文件上传解析器
+                         拦截器
+                         异常处理器
+                        配置文件关系(静态资源管理,mvc注解驱动,视图控制器):
+                                只配置视图控制器:只有视图控制器的路径会被解析,控制层中的请求映射全都无法处理。需开启mvc注解驱动。
+                                只配置静态资源管理:当前从浏览器向服务器发送的请求将全部由默认servlet处理,控制层中的请求映射全都无法处理。需开启mvc注解驱动。
+                                开启mvc注解驱动:先用DispatcherServlet处理请求,若无法处理则交给默认servlet继续处理。
+                创建控制层文件
+        2.2搭建spring框架
+                将service层交给spring管理
+                配置spring配置文件:
+                        *扫描组件(除控制层),创建service层接口+实现类
+                        *配置数据源,创建.properties文件
+                        *引入properties文件
+
+
+        2.3搭建mybatis    使用spring整合mybatis
+                创建核心配置文件
+                将SqlSession和SqlSessionFactory交给spring管理(spring整合mybatis):
+                        *配置SqlSessionFactoryBean:
+                                *配置mybatis核心配置文件的路径
+                                *配置数据源
+                                *配置类型别名对应的包,创建pojo
+                                 配置插件(eg:分页)
+                                 全局配置configurationProperties(eg:驼峰)
+                                 配置mapper映射文件的路径mapperLocations(映射文件包和mapper接口包、文件名不一致时需要设置)
+                        *配置mapper扫描(根据配好的SqlSessionFactoryBean创建代理实现类对象,并交给ioc)
+                         mapper扫描和配置mapper映射文件路径的关系:
+                                在没有mapper扫描的情况下:无论映射文件包和mapper接口包、文件名是否一致,都需要配置mapper映射文件路径。
+                                有mapper扫描的情况下:既设置了mapper接口所在的包,也设置了映射文件所在的包。则不需要配置mapper映射文件路径。
+                                有mapper扫描的情况下,但映射文件包和mapper接口包、文件名不一致:需要配置mapper映射文件路径。
+                在service中自动装配mapper接口对象
+                在Controller中自动装配Service对象
+
+
+
+
+
+

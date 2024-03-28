@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>index.html</h1>
+<a th:href="@{/hello}">测试@RequestMapping所标识的位置</a> <br>
+<a th:href="@{/test/abc}">测试@RequestMapping的value属性</a>
+<form th:action="@{/test/hello}" method="post">
+    <input type="submit" value="测试@RequestMapping的method属性">
+</form>
+<!--携带参数两种写法-->
+<a th:href="@{/test/hello?username=admin}">测试@RequestMapping的value属性</a><!--报错正常-->
+<a th:href="@{/test/hello(username='admin',age=20)}">测试@RequestMapping的value属性</a> <br>
+<a th:href="@{/test/aac/mode/ant(username='admin')}">测试@RequestMapping支持Ant风格路径</a> <br>
+<a th:href="@{/test/rest/admin/1}">测试@RequestMapping路径的占位符</a>
+<hr>
+获取请求参数的功能
+通过servletAPI
+<form th:action="@{/param/servletAPI}" method="post">
+    用户名: <input type="text" name="username">
+    密码: <input type="text" name="passwd">
+    <input type="submit" value="登录">
+</form>
+通过控制器方法的形参
+<form th:action="@{/param}" method="post">
+    用户名: <input type="text" name="username">
+    密码: <input type="text" name="passwd">
+    <input type="submit" value="登录">
+</form>
+通过控制器方法的形参 但参数名和形参名不同。测试默认值
+<form th:action="@{/paramButDifferentName}" method="post">
+    用户名: <input type="text" name="name">
+    密码: <input type="text" name="passwd">
+    <input type="submit" value="登录">
+</form>
+通过pojo实体类获取请求参数
+<form th:action="@{/param/pojo}" method="get">
+    用户名: <input type="text" name="username">
+    密码: <input type="text" name="passwd">
+    <input type="submit" value="登录">
+</form>
+<hr>
+请求域共享数据 <br>
+<a th:href="@{/test/modelandview}">测试通过ModelAndView向请求域共享数据</a> <br>
+<a th:href="@{/test/model}">测试通过Model向请求域共享数据</a> <br>
+<a th:href="@{/test/modelMap}">测试通过ModelMap向请求域共享数据</a> <br>
+<a th:href="@{/test/map}">测试通过Map向请求域共享数据</a>
+<hr>
+session域共享数据
+<a th:href="@{/test/session}">测试向会话域共享数据</a>
+<hr>
+application域共享数据
+<a th:href="@{/test/application}">测试向应用域共享数据</a>
+</body>
+</html>

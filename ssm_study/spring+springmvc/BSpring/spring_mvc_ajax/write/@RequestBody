@@ -1,0 +1,11 @@
+(AjaxController.java)
+1.@RequestBody
+        用在控制器方法上
+        获取请求体中的内容,将请求体的内容和形参绑定
+        在形参上加@RequestBody后,就可以用请求体中的内容为形参赋值
+2.@RequestBody将json格式请求参数转为java对象
+        使用条件:
+                1.导入jackson的jar包(转换过程中默认调用jackson实现)
+                2.在SpringMVC配置文件中设置mvc注解驱动<mvc:annotation-driven/>
+                3.在处理请求的控制器方法的形参位置,直接设置 json格式的请求参数 要转换的 java类型的形参
+                4.使用@RequestBody标识即可

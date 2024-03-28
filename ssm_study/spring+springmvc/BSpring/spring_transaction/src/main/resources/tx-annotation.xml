@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.bc.spring"></context:component-scan>
+    <!--引入properties-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+    <!--基于xml配置数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+    <!--配置JdbcTemplate-->
+    <!--dataSource:连接数据库-->
+    <!--JdbcTemplate是操作数据库的对象,想要操作数据库必须要有数据库的连接(引入数据源)-->
+    <bean class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--配置事务管理器-->
+    <!--事务管理器本质为一个对象,事务的实现基于连接对象操作,依赖于数据源-->
+    <!--事务管理器中存放切面,切面中有通知-->
+    <!--DataSourceTransactionManager:TransactionManager的实现类-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--开启事务注解驱动(tx)-->
+    <!--把事务管理器中的环绕通知作用到连接点上,将使用@Transactional注解所标识的方法或类用事务进行管理-->
+    <!--transaction-manager:事务管理器的bean的id,若事务管理器id默认为transactionManager,则该属性可以不写-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

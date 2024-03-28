@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_helloworld" />
+        <module name="spring_DI" />
+        <module name="spring_mvc_demo" />
+        <module name="spring_mvc_ajax" />
+        <module name="ssm" />
+        <module name="spring_mvc_helloworld" />
+        <module name="spring_mvc_annotation" />
+        <module name="spring_mvc_rest" />
+        <module name="spring_transaction" />
+        <module name="spring_mvc_extension" />
+        <module name="spring_proxy" />
+        <module name="spring_mvc_restEg" />
+        <module name="spring_ioc_xml" />
+        <module name="spring_ioc_annotation" />
+        <module name="spring_aop" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="restEg" target="11" />
+      <module name="spring_aop" target="11" />
+      <module name="spring_DI" target="11" />
+      <module name="spring_helloworld" target="11" />
+      <module name="spring_ioc_annotation" target="11" />
+      <module name="spring_ioc_xml" target="11" />
+      <module name="spring_mvc_ajax" target="11" />
+      <module name="spring_mvc_annotation" target="11" />
+      <module name="spring_mvc_demo" target="1.8" />
+      <module name="spring_mvc_extension" target="11" />
+      <module name="spring_mvc_helloworld" target="1.8" />
+      <module name="spring_mvc_rest" target="1.8" />
+      <module name="spring_mvc_restEg" target="1.8" />
+      <module name="spring_proxy" target="11" />
+      <module name="spring_transaction" target="11" />
+      <module name="SSM" target="11" />
+      <module name="ssm" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-encoding utf-8" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SSM" options="" />
+      <module name="restEg" options="" />
+      <module name="spring_DI" options="" />
+      <module name="spring_aop" options="" />
+      <module name="spring_helloworld" options="" />
+      <module name="spring_ioc_annotation" options="" />
+      <module name="spring_ioc_xml" options="" />
+      <module name="spring_mvc_ajax" options="" />
+      <module name="spring_mvc_annotation" options="" />
+      <module name="spring_mvc_demo" options="" />
+      <module name="spring_mvc_extension" options="" />
+      <module name="spring_mvc_helloworld" options="" />
+      <module name="spring_mvc_rest" options="" />
+      <module name="spring_mvc_restEg" options="" />
+      <module name="spring_proxy" options="" />
+      <module name="spring_transaction" options="" />
+      <module name="ssm" options="" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--声明映射文件的命名空间（区分用）-->
+<mapper namespace="mapper.UserMapper"> <!--往往和文件名一致（给文件里的所有操作起名）-->
+
+    <!--int InsertUser();-->
+    <insert id="InsertUser">
+        insert into user value ('0004','zsb')
+    </insert>
+
+    <select id="SelectUserById" resultType="U">
+        select *from user where id='1'
+    </select>
+
+    <select id="SelectRamdon" resultType="User" parameterType="String">
+<!--
+        select * from user where name=#{aaaaaa} &lt;!&ndash;#{}里可以写任何东西 占位符赋值&ndash;&gt;
+-->
+        select * from user where name='${wxq}' <!--字符串拼接，如果String类型${}字符串拼接，必须手动加''-->
+    </select>
+
+    <select id="SelectUserByIdAndName" resultType="User">
+        select *from user where id=#{arg0} and name=#{arg1} <!--mybatis自动把多参数整合为map集合传参要为arg0，arg1。param1,param2也行。只需要用#{}或${}获取map的键就可以获取相应的值-->
+    </select>
+
+    <select id="SelectAllUserByParam" resultType="User">
+        select *from user where id=#{id} and name=#{name} <!--加了注解之后还可以用param1和param2....-->
+    </select>
+
+<select id="SelectCount" resultType="int">
+    select count(*) from user
+</select>
+
+    <select id="getUserByIdtoMap" resultType="map">
+        select * from user where id=#{id}
+    </select>
+
+
+</mapper>

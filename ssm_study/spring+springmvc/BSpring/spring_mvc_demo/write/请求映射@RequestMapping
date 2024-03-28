@@ -1,0 +1,20 @@
+@RequestMapping标记位置
+        标记在类前:设置当前请求映射的基础信息(设置请求方法的前置请求条件)
+        标记在方法前:设置请求映射的具体信息
+@RequestMapping的属性
+        value:数组类型,保存请求路径,用来匹配浏览器发送来的请求
+        method:RequestMethod类型数组(枚举),请求方式。get、post。
+                浏览器的默认操作(复制url、刷新)均为get请求
+        params:通过当前请求的请求参数匹配请求(浏览器发送请求参数 必须满足params属性的设置)
+                四种表达式:
+                        "param":表示当前请求的请求参数中,必须携带param参数
+                        "!param":表示当前请求的请求参数中,不能携带param参数
+                        "param=value":表示当前请求的请求参数中,必须携带param参数且值必须为value
+                        "param!=value":表示当前请求的请求参数中,可以不携带param,但是若携带值一定不能是value
+        header:同param
+
+
+        在请求路径匹配时,只有@RequestMapping属性全部匹配成功才可以执行相应注解的方法
+派生注解:在@RequestMapping基础上,结合请求方式的派生注解:@GetMapping、@PostMapping、@DeleteMapping、@PutMapping
+
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--将三层架构交给ioc容器管理-->
+    <!--autowire:自动装配-->
+    <!--no:不自动装配(不进行赋值) bean中属性默认值为null-->
+    <!--default:不设值/不装配 ≈no -->
+    <!--byType：根据类型自动装配 根据类型在ioc容器中匹配到类型匹配的bean(自动匹配实现类)-->
+    <!--byname：根据要赋值的属性 的属性名自动装配-->
+    <bean id="userController" class="com.bc.spring.controller.UserController" autowire="byType">
+<!--        <property name="userService" ref="userService"></property>-->
+    </bean>
+    <bean id="userService" class="com.bc.spring.impl.UserServiceImpl" autowire="byType">
+<!--       <property name="userDao" ref="userDao"></property>-->
+    </bean>
+<!--    <bean id="service" class="com.bc.spring.impl.UserServiceImpl"></bean>-->
+    <bean id="userDao" class="com.bc.spring.impl.UserDaoImpl"></bean>
+<!--    <bean id="dao" class="com.bc.spring.impl.UserDaoImpl"></bean>-->
+</beans>

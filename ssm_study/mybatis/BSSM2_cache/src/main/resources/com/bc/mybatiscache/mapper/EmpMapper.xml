@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--声明映射文件的命名空间（区分用）-->
+<mapper namespace="com.bc.mybatiscache.mapper.EmpMapper"> <!--往往和文件名一致（给文件里的所有操作起名）-->
+
+    <!--开启二级缓存-->
+    <cache/>
+    <!--二级缓存配置-->
+    <!-- cache标签属性-->
+    <!--    eviction ：缓存回收策略 默认值LRU-->
+    <!--    值：LRU 移除长时间不用的对象-->
+    <!--    FIFO 按对象进入缓存的顺序移除（先进先出）-->
+    <!--    flushInterval：缓存清除的间隔 默认无刷新间隔（不设置）在使用增删改时刷新-->
+    <!--    size：设置当前缓存内最多存储的对象数（一般不自己设置 设置太大容易缓存溢出）-->
+    <!--    readOnly：-->
+    <!--    值：true 只读缓存-->
+    <!--    false读写缓存 会返回缓存对象的拷贝 每次调用都会拷贝 性能低 但安全-->
+
+
+<!-- 第三方缓存配置 缓存类型：   <cache type=""/>-->
+
+
+    <select id="getEmpByEmpno" resultType="emp">
+        select * from emp where empno=#{empno}
+    </select>
+</mapper>

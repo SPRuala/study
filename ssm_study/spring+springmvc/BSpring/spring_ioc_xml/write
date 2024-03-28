@@ -1,0 +1,20 @@
+1.基于xml来管理bean
+ioc：
+    底层使用工厂模式 最基本实现：beanfactory
+    spring创建对象的方式：1.反射（通过类的路径直接实例化一个类 class里不能写接口（接口不能实例化）） （通过反射创建对象都使用无参构造）
+                       2.工厂
+    在解析xml文件时可以获得class属性值
+
+    bug：.NoSuchMethodException：没有足够的方法 <init>无参构造
+2.获取bean的三种方式:
+                    根据bean的id
+                    根据bean的类型(常用): 如果有同类型的bean会报错：NoUniqueBeanDefinitionException 类型中没有唯一的可用对象
+                                   如果没有bean会报错：NoSuchBeanDefinitionException 一个bean都没有
+                    根据bean的id和类型
+3.通过接口类型获取当前bean
+                    1.Person student=ioc.getBean(Student.class); 通过Student类型获取了bean，后向上转型赋值给了它的接口对象
+                    2.Person person=ioc.getBean(Person.class);（常用）
+                    接口可以获取bean：bean需要唯一
+                    接口无法获取bean：一个接口多个实现类 实现类都配置了bean
+
+

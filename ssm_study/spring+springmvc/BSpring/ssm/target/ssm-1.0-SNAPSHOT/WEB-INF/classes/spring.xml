@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--扫描组件(除控制层)-->
+    <!--type="annotation":以注解的方式排除-->
+    <!--expression:@Controller注解的全类名-->
+    <context:component-scan base-package="com.bc.ssm">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--引入jdbc.properties-->
+    <!--classpath:当前项目java/resource目录下-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+    <!--配置数据源-->
+    <!--value均从property文件中获取-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <!--spring整合mybatis-->
+    <!--配置SqlSessionFactoryBean-->
+    <!--SqlSessionFactoryBean:配置到ioc容器后,可以直接在spring的ioc中获取此工厂bean提供的SqlSessionFactory对象(等同于SqlSessionUtil中的内容)-->
+    <!--可以直接在service中自动装配SqlSessionFactory-->
+    <!--通过.openSession方法获取SqlSession对象。通过SqlSession获取Mapper接口对象。再调用方法-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--以下获取的属性在创建sqlSessionFactory时被使用-->
+        <!--configLocation:设置mybatis核心配置文件的路径-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--设置数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--设置类型别名对应的包-->
+        <property name="typeAliasesPackage" value="com.bc.ssm.pojo"></property>
+        <!--设置mapper映射文件的路径(当mapper文件和接口的路径一致、文件名一致时,此标签不用设置)-->
+        <!--value="classpath:mappers/*.xml":mappers包下的所有xml文件-->
+<!--        <property name="mapperLocations" value="classpath:mappers/*.xml"></property>-->
+    </bean>
+    <!--配置mapper扫描,扫描mapper接口-->
+    <!--MapperScannerConfigurer:把指定的包下所有的mapper接口通过SqlSessionFactory所提供的SqlSession对象创建mapper接口的代理实现类对象,并把它们交给ioc容器来管理-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.bc.ssm.mapper"></property>
+    </bean>
+</beans>

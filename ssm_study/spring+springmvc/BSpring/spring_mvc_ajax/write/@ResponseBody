@@ -1,0 +1,23 @@
+@ResponseBody
+        使用:
+                1.将当前方法的返回值作为响应报文的响应体 响应到浏览器
+                eg:
+                        @RequestMapping("ResponseBody")
+                        @ResponseBody
+                            public String testResponseBody(){
+                            return "hello";
+                        }
+                不加注解:实现页面跳转
+                加注解:向浏览器响应"hello"字符串
+                2.响应浏览器json格式的数据
+                        条件:
+                                 1.导入jackson的jar包(转换过程中默认调用jackson实现)
+                                 2.在SpringMVC配置文件中设置mvc注解驱动<mvc:annotation-driven/>
+                                 3.将需要转换为json字符串的java对象直接作为控制器方法的返回值,@ResponseBody注解标识控制器方法 可以将java对象转为json字符串,并响应到浏览器。
+                                 4.直接将java类返回
+                                 5.使用@ResponseBody标识即可
+        常用的java对象转换为json的结果:
+                实体类-->json对象
+                map-->json对象
+                List集合-->json数组
+

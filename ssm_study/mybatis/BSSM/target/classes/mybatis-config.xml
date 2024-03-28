@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+
+    <!--引入properties文件，在此文件中使用${key}的方式访问value-->
+    <properties resource="jdbc.properties"/>
+
+
+
+    <settings>
+        <!--自动将下划线映射为驼峰(字段名和属性名不一致的情况下eg：dept_id=deptId),使用此方法不用将mapper文件中的sql语句设别名-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--延迟加载（和按需加载配套使用）:可以使分步查询的sql语句只执行需要的某一步-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--按需加载：如果设定为true，不管需不需要所有属性都会加载sql都会执行。设定为false只加载需要的sql-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+
+        <!-- 使用Mybatis控制日志操作开关 -->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+<!--别名 为某一个具体类型设置简短名字。在mybatis中只访问别名就能访问具体的类。若不设置别名 则默认类名（不分大小写）为别名-->
+    <typeAliases>
+        <typeAlias type="pojo.User" alias="U"/><!--type：包+类 设别名的类 alias：别名-->
+
+       <package name="pojo"/><!--通过包设置别名 在此包下所有类将拥有默认别名（不分大小写的类名）-->
+    </typeAliases>
+
+
+
+
+
+<!-- 连接数据库的配置 -->
+  <!--连数据源.管理数据库链接-->
+  <environments default="default">
+    <environment id="default">
+      <transactionManager type="JDBC"/><!-- 默认的事务处理操作 -->
+      <dataSource type="POOLED"><!-- 使用数据库的连接池子方式 -->
+        <property name="driver" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+      </dataSource>
+    </environment>
+  
+ </environments>
+
+  <!--数据源连接后-->
+<!--   当数据库连接后，加载映射文件-->
+  <mappers>
+    
+      <package name="mapper"/><!--通过包引入映射文件（方便映射文件过多的情况） 要求：mapper接口和映射文件包名必须一致，接口和文件名字必须一致-->
+  </mappers>
+  
+</configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--声明映射文件的命名空间（区分用）-->
+<mapper namespace="com.bc.mybatiscache.mapper.EmpMapper"> <!--往往和文件名一致（给文件里的所有操作起名）-->
+
+    <!--开启二级缓存-->
+    <cache/>
+
+    <select id="getEmpByEmpno" resultType="emp">
+        select * from emp where empno=#{empno}
+    </select>
+</mapper>

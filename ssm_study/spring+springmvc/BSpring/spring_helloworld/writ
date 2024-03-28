@@ -1,0 +1,19 @@
+1.先创建一个类（交给spring管理）
+2.创建spring配置文件
+可以指定通过某个xml获取ioc容器 所以配置文件名随意
+3.创建测试类
+
+IOC容器在spring表现方式：1.beanfactory 2.applicationcontext
+ApplicationContext:
+                    接口 使用时需要向上转型来创建ioc容器对象
+                    实现类：FileSystemXmlApplicationContext（以磁盘路径获取ioc容器）
+                          ClassPathXmlApplicationContext(以项目内的路径获取ioc容器)
+
+配置路径时直接写xml文件：resources和java最终会被加载在一个路径下（类路径下）
+
+spring如何减化java开发？
+    贯穿ioc、aop
+    核心为一个个bean(一个个实体类)
+    是一个轻量级框架,不需要依赖太多第三方组件
+    非入侵式编程 ：有aop的思想。许多东西和spring集成后只会扩展,不会改变原有代码
+    通过切面和模板减少代码

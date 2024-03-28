@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--把UserFactoryBean配置进ioc容器-->
+    <!--把UserFactoryBean中的getObject()方法所返回的对象交给ioc容器-->
+    <bean class="com.bc.spring.factory.UserFactoryBean"></bean>
+</beans>
