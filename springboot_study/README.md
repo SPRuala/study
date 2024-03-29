@@ -39,3 +39,25 @@
   + 整合Junit5单元测试  
   + spring boot日志开启  
   + hibernate校验 
+### getStaticResource
+  + SpringBoot web请求静态资源
+### lombokAndSetLog
+  + Lombok提高开发效率以及日志设置
+### otherWriteInSpring
+  + Restful接口风格
+  + 接参常用注解
+  + :sparkles:关于Springboot和log4j
+### interfaceResponse
+  + SpringBoot接口返回响应对象
+### fileUpload
+  + 文件上传
+### makeErrorPage
+  + 自定义异常页面
+  + 统一异常封装处理
+  + 拦截器
+### makeExceptionAndInterceptorFront
+  + 自定义异常与拦截器整合返回Json对象
+### timeTask
+  + :sparkles:定时任务
+### asynchronous
+  + 异步任务
