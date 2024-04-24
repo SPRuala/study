@@ -62,3 +62,21 @@
 ### asynchronous
   + 异步任务
 ## :leaves::cloud:bSpringBootOnCloud
+### springboot2_onCloud  
+#### RabbitMQ
+  + 引入依赖和配置
+  + 创建交换机和队列
+  + 创建生产者配置路由规则
+  + 消费者接受消息处理业务
+#### MongoDB
+  + SpringBoot整合MongoDB
+#### Redis 
+  + Spring整合Redis
+#### MinIO
+  + 构建文件上传页面
+  + MinIO文件上传
+#### Nacos
+  + 注册服务到Nacos
+  + Nacos实现动态配置管理
+### testRabbitMQ
+  + MQ测试项目
