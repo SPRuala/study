@@ -1,0 +1,21 @@
+DefaultSecurityFilterChain:
+    断点位置:DefaultSecurityFilterChain.class-35
+    项目启动时,Filter列表(Spring应用程序默认加载的16个过滤器):
+        o.s.s.web.DefaultSecurityFilterChain     :
+        Will secure any request with [
+        org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b46dd8,
+        org.springframework.security.web.context.SecurityContextPersistenceFilter@d5ce97f,
+        org.springframework.security.web.header.HeaderWriterFilter@4f4c789f,
+        org.springframework.security.web.csrf.CsrfFilter@1fcf9739,
+        org.springframework.security.web.authentication.logout.LogoutFilter@7b4acdc2,                 ————实现登出流程过滤器
+        org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6145b81e,————登录校验用户名密码是否正确
+        org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@51351f28, ————展示登录页过滤器
+        org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@39651a82,————展示登出页过滤器
+        org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5d01ea21,
+        org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e3994ef,
+        org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f04105,
+        org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6be7bf6d,
+        org.springframework.security.web.session.SessionManagementFilter@1b7cae6f,
+        org.springframework.security.web.access.ExceptionTranslationFilter@1023150a,
+        org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d178d55
+        ]

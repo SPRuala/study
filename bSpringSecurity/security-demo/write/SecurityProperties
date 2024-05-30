@@ -1,0 +1,6 @@
+SecurityProperties:
+
+内置一个内部类User,定义每次初始化时的用户和密码
+
+自定义用户名、密码:
+    在application.yaml/properties中,使用 security.user.name/.password 配置进行修改

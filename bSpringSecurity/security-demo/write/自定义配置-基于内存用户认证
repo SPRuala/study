@@ -1,0 +1,42 @@
+使应用程序更灵活,使用自定义配置文件(当前用户只被管理在内存当中)
+
+创建自定义配置:
+    1.创建config配置类
+    2.为其添加相应注解
+        Spring Security6: (官方文档代码中)需添加@Configuration注解和@EnableWebSecurity注解
+        Spring Security5: (官方文档代码中)只需添加@EnableWebSecurity注解
+        Spring Boot项目: 若当前项目为Spring Boot项目,则@EnableWebSecurity可以省略
+                        忽略原理:
+                        Spring Boot自带jar包spring-boot-autoconfigure,其中定义了所有基于spring boot项目的第三方默认配置;
+                        查看spring-boot-autoconfigure/org.springframework.boot.autoconfigure/security/servlet/SpringBootWebSecurityConfiguration
+                        查看WebSecurityEnablerConfiguration方法(Spring Boot3):
+                            @ConditionalOnClass({EnableWebSecurity.class}) //只要EnableWebSecurity类被加载到应用上下文当中,@EnableWebSecurity 就会生效
+                            @EnableWebSecurity
+                            static class WebSecurityEnablerConfiguration {
+                            WebSecurityEnablerConfiguration(){
+                            }
+                           }
+                        Spring Boot2: 将WebSecurityEnablerConfiguration方法单独提炼出来放置于WebSecurityEnablerConfiguration类中(以上代码也位于该类中)
+                        EnableWebSecurity类加载时机: 当pom.xml文件中加载进了spring-boot-starter-security时,EnableWebSecurity就会加载进应用程序中
+        Q: Spring Security5可以两个注解都加上吗？
+        A: 可以
+        Q: Spring Boot项目可以省略@Configuration只写@EnableWebSecurity吗？
+        A: 可以
+        Q: Spring Boot2可以省略@EnableWebSecurity只写@Configuration吗？
+        A: 可以
+        Q: Spring Boot2+Spring Security5可以两个注解都不写吗？
+        A: 不可以
+    3.添加userDetailsService方法:
+         @Bean
+         public UserDetailsService userDetailsService(){
+             InMemoryUserDetailsManager manager=new InMemoryUserDetailsManager();
+             manager.createUser(User.withDefaultPasswordEncoder().username("user").password("password").roles("USER").build());
+             return manager;
+         }
+         Q: 配置类的用户名密码和yaml的会冲突吗？哪个优先级更高？
+         A: 配置类配置完毕后,yaml的用户名密码会失效; yaml配置用户名和密码是修改userdetails默认USER对象的默认配置,而配置类build后直接替换掉了默认的userdetails USER对象
+         Q: UserDetailsService是单例吗?
+         A: 应该是,bean注入对象默认都为单例
+Bug:
+    警告: User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+    原因: withDefaultPasswordEncoder不安全,只能在例子中使用; 安全写法: 先生成PasswordEncoder实例,使用Password Encoder实例的encode()方法对密码加密后,再设置到userdetails对象上。

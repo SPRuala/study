@@ -1,0 +1,6 @@
+(SecurityController.java)(UserService/Impl.java)(DBUserDetailsManager.java)
+添加用户:
+   在Controller控制层中调用Service层中的自定义方法saveUserDetails()
+   在Service层中实现saveUserDetails()方法
+   在saveUserDetails()方法中使用DBUserDetailsManager的createUser()方法
+   在DBUserDetailsManager类中实现(重写)`createUser()`方法

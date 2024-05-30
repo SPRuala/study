@@ -1,0 +1,35 @@
+流程分析:
+    启动时:
+    1.实例化InMemoryUserDetailsManager对象manager
+    2.实例化PasswordEncoder
+    3.使用manager通过createUser()方法创建userdetails对象
+        createUser():
+            通过 this.users.put(user.getUsername().toLowerCase(), new MutableUser(user)); 将先前创建的user对象放入应用内存中(当前类的user属性中)
+    4.将userdetail对象存入内存
+    登录时(校验用户):
+    1.执行UsernamePasswordAuthenticationFilter类的attemptAuthentication()方法,获取输入的用户名、密码,并和内存中的做比较
+        attemptAuthentication():
+            · 通过 request 对象接收到请求对象
+            · 通过 if()判断是否为post请求
+            · 从请求中获取用户名、密码,封装为 UsernamePasswordAuthenticationToken 对象
+            · 通过getAuthenticationManager()方法中的authenticate()方法, 校验输入的用户名密码
+                authenticate()(AbstractUserDetailsAuthenticationProvider类):
+                    · 从接收参数中获取到用户名
+                    · retrieveUser()
+                        retrieveUser():
+                           · 通过 UserDetails loadedUser = this.getUserDetailsService().loadUserByUsername(username);
+                            中的.getUserDetailsService()获取到先前创建的UserDetailsService中的manager对象
+                           · 通过 UserDetails loadedUser = this.getUserDetailsService().loadUserByUsername(username);
+                            中的.loadUserByUsername() 获取出内存中的对象
+                            loadUserByUsername():
+                                · 此时进入InMemoryUserDetailsManager类
+                                · 获取内存中的用户名,判断内存中是否存在该用户,存在则将该用户各项信息封装为UserDetails对象返回至retrieveUser()
+                                 的UserDetails loadedUser = this.getUserDetailsService().loadUserByUsername(username);
+                                · 通过additionalAuthenticationChecks()判断内存中(loadedUser)的用户密码和所输入的用户密码(authentication)是否相同(跳出)
+                    · additionalAuthenticationChecks()
+                        additionalAuthenticationChecks():
+                            · 判断是否有用户凭证(密码等..)
+                            · 获取用户凭证
+                            · 将输入的密码和内存中的密码取出并匹配.matches(presentedPassword, userDetails.getPassword())
+                             (获取到内存中的密码已被加密,在比较时.matches也会将输入的密码一并加密,若输入密码加密后与内存密码相同,则登录成功)
+                            · 比较成功后则登录完成,进入应用程序

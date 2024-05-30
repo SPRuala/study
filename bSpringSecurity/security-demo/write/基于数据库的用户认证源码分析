@@ -1,0 +1,23 @@
+基于数据库的用户认证流程:
+    和基于内存相似,但由于基于数据库用户认证,则需要手动实现系统启动时所创建的用户类(参考InMemoryUserDetailsManager)
+    启动时:
+    1.实例化DBUserDetailsManager对象manager
+        查看InMemoryUserDetailsManager中实现的接口UserDetailsManager,查看该结构中包含JdbcUserDetailsManager类
+        JdbcUserDetailsManager:
+            可直接实现基于数据库的用户认证,但实现方法基于spring template持久层,并不是基于mybatis或mybatisplus
+        自定义实现用户认证:
+            · 只想实现 loadUserByUsername()方法,则只需实现UserDetailsService接口
+            · 若想参考 InMemoryUserDetailsManager类实现,则需实现UserDetailsManager, UserDetailsPasswordService接口
+            UserDetailsManager接口:
+                包含createUser()、updateUser()、deleteUser()、changePassword()、userExists()方法
+                父接口UserDetailsService
+                    UserDetailsService:
+                        包含loadUserByUsername()方法
+            UserDetailsPasswordService接口:
+                包含updatePassword()方法
+        参考InMemoryUserDetailsManager类实现:
+            创建DBUserDetailsManager,实现接口UserDetailsManager, UserDetailsPasswordService
+    2.基于数据库的用户认证流程无需创建用户对象存入内存
+    校验登录时:
+    1.自动使用DBUserDetailsManager的loadUserByUsername()方法,从数据库中获取user对象
+    2.在UsernamePasswordAuthenticationFilter过滤器中attemptAuthentication()方法中将用户输入的用户名、密码与从数据库中获取的用户名、密码相比较,进行用户认证

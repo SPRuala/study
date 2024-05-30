@@ -1,0 +1,35 @@
+(pom.xml)(WebSecurityConfig.java)
+对`添加用户功能`的测试:
+    因`添加用户`功能为post请求,且无前端页面,故使用swagger进行测试
+
+swagger:
+    使用swagger测试前需导入相应依赖:
+        <properties>
+            <knife4j-openapi3-spring.version>4.3.0</knife4j-openapi3-spring.version>
+        </properties>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+            <version>${knife4j-openapi3-spring.version}</version>
+        </dependency>
+
+    swagger面板进入:
+        登录成功后,使用http://localhost:8086/bc/doc.html路径进入swagger面板
+
+    发送Post添加请求后报错403"Forbidden"(没有权限访问):
+        原因: Spring Security默认开启了csrf请求攻击防御
+        解决: 关闭CSRF攻击
+
+    CSRF攻击防御特点:
+        若一个网站开启了csrf攻击防御,则在登录表单中会自动生成隐藏标签,name为"_csrf",值为一段随机字符串,在表单提交时一并交给服务器,用于防止csrf攻击
+        (<input name="_csrf" type="hidden" value="9b651af9-6af8-4f0b-a4a9-96185fa70938">)
+        spring security要求所有post请求的客户端页面务必提供csrf字段,后台在提交时对该字段进行校验,若未找到该字段,则开启防御机制,返回"没有权限访问"
+
+    关闭CSRF攻击防御:
+        关闭CSRF攻击防御后,所有post请求提交都无需再提供csrf隐藏字段
+        关闭方法:在WebSecurityConfig类的filterchain()方法中使用:http.csrf(csrf -> csrf.disable());
+
+Bug:
+    Cannot pass a null GrantedAuthority collection(不能传递一个空的已授权的集合)
+    原因: 在配置类中没有配置角色,没有给用户授予权限,权限集合为空
+    解决: 在UserServiceImpl类的saveUserDetails()方法中,实例化UserDetails对象时添加.roles(" ")

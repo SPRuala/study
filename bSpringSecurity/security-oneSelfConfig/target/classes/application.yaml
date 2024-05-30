@@ -1,0 +1,28 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /bc
+spring:
+  #thymeleaf配置
+  thymeleaf:
+    cache: true #开启模板缓存
+    check-template: true #检查模板是否存在,然后呈现
+    check-template-location: true #检查模板位置是否正确
+    content-type: text/html #Content-Type 的值（默认值： text/html ）
+    enabled: true #开启视图解析(默认值true)
+    encoding: UTF-8
+    excluded-view-names:  #要被排除在解析之外的视图名称列表( 用逗号分隔 )
+    mode: HTML #要运用于模板之上的模板模式,另⻅StandardTemplate-ModeHandlers( 默认值：HTML5 )
+    prefix: classpath:/templates/ #在构建url时添加到视图名称前的前缀
+    suffix: .html #在构建url时添加到视图名称的后缀
+  #数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/security-demo
+    username: root
+    password: xyx020717
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #mybatis-plus打印sql日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

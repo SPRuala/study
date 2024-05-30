@@ -1,0 +1,13 @@
+(LoginController.java)(WebSecurityConfig.java)(login.html)
+自定义登录页:
+    1.控制层定义请求映射跳转至自定义登录页面
+    2.修改WebSecurityConfig的过滤器链中的自定义配置
+            未修改配置时,使用"/login"试图请求进入登录页面失败,依然跳转至默认的表单页面登录
+            在请求到达controller之前,会依次经过过滤器链;如果发送"/login"请求至服务器端,过滤器链会直接对该请求进行处理(寻找默认的登录页面)
+            针对httpSecurity对象修改.formLogin()为自定义配置:
+                删除默认配置,通过lambda表达式替换为自定义配置;
+                通过form.loginPage("/login")自定义登录地址
+    3.为自定义登录地址的配置添加.permitAll()取消授权保护
+        若不取消授权保护:  无法进入/login, bug为 localhost 重定向次数过多
+        在自定义login页地址之后,过滤器链中的登录页过滤器会被替换为自定义login地址的过滤器;
+        该/login地址遵循授权保护,每次被授权保护时又会被重定向到/login地址,由此循环,导致重定向次数过多

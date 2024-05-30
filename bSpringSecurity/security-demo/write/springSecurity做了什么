@@ -1,0 +1,18 @@
+SpringSecurity默认做了什么?
+    保护应用程序车url,对任何交互行为进行身份验证
+    程序启动时生成默认测试用户user
+    程序启动时生成默认测试密码
+    生成默认登陆表单和注销页面
+    提供基于表单的登录、注销流程
+    对于web请求,重定向到登陆页面
+    对于服务端请求,返回401未授权
+    处理跨站请求伪造(CSRF)攻击
+    处理会话劫持攻击
+    写入Strict-Transport-Security以确保HTTPS
+    写入X-Content-Type-Options以处理嗅探攻击
+    写入Cache Control头来保护经过身份验证的资源
+    写入X-Frame-Options以处理点击劫持攻击
+
+有两个重要的类:
+    DefaultSecurityFilterChain
+    SecurityProperties

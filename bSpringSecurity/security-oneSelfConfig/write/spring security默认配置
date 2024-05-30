@@ -1,0 +1,37 @@
+spring security默认配置:
+    在WebSecurityConfig配置文件中无配置方法时,该配置文件遵循默认的配置行为
+        默认配置行为(加与不加该代码,程序运行结果相同):
+        @Bean
+        public SecurityFilterChain filterchain(HttpSecurity http) throws Exception {
+            http
+                    .authorizeRequests(authorize -> authorize.anyRequest().authenticated())
+                    .formLogin(withDefaults())//表单授权方式
+                    .httpBasic(withDefaults());//基本授权方式
+            return http.build();
+        }
+        该行为中,针对httpSecurity进行一系列配置,并生成过滤器链(控制了启动时默认加载的过滤器们都有哪些,和它们相应的实现细节)
+    Q: 可以同时把表单登录方式和基本登录方式都注释吗？
+    A: 可以,但注释后页面会显示"访问 localhost 被拒绝",此时无法进入接下来的操作
+
+过滤器链受默认配置的变化:
+    1.默认配置不变(共16个过滤器):
+        DisableEncodeUrlFilter
+        WebAsyncManagerIntegrationFilter
+        SecurityContextPersistenceFilter
+        HeaderWriterFilter
+        CsrfFilter
+        LogoutFilter
+        UsernamePasswordAuthenticationFilter
+        DefaultLoginPageGeneratingFilter
+        DefaultLogoutPageGeneratingFilter
+        BasicAuthenticationFilter
+        RequestCacheAwareFilter
+        SecurityContextHolderAwareRequestFilter
+        AnonymousAuthenticationFilter
+        SessionManagementFilter
+        ExceptionTranslationFilter
+        FilterSecurityInterceptor
+    2.注释`基本授权方式`(共15个过滤器):
+        缺少了`BasicAuthenticationFilter`
+    3.注释`表单授权方式`(共13个过滤器):
+        缺少了`UsernamePasswordAuthenticationFilter`,`DefaultLoginPageGeneratingFilter`,`DefaultLogoutPageGeneratingFilter`

@@ -1,0 +1,17 @@
+(WebSecurityConfig.java)
+UsernamePasswordAuthenticationFilter:
+    attemptAuthentication方法:
+        获取前端传递的username和password(根据参数名查找是否存在username和password)
+        如果前端无username和password参数,则会导致密码错误无法登录
+    自定义前端表单参数名:
+        <input type="text" name="myusername" placeholder="用户名"/>
+        <input type="password" name="mypassword" placeholder="密码"/>
+        修改自定义配置:
+            .usernameParameter("myname")
+            .passwordParameter("mypassword")
+            重新定义name和password的后端接收参数名称
+    自定义错误路径:
+        WebSecurityConfig中配置filterchain()方法,针对HttpSecurity对象中的.formLogin()配置.failureUrl("/login?fail");
+    动态连接:
+        开启csrf攻击后,表单默认自动生成隐藏标签name为"_csrf"
+        根据发布路径,动态生成相应路径

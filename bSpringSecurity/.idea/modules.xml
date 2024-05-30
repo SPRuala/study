@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bSpringSecurity.iml" filepath="$PROJECT_DIR$/bSpringSecurity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-demo/security-demo.iml" filepath="$PROJECT_DIR$/security-demo/security-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-oneSelfConfig/security-oneSelfConfig.iml" filepath="$PROJECT_DIR$/security-oneSelfConfig/security-oneSelfConfig.iml" />
+    </modules>
+  </component>
+</project>

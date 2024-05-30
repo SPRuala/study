@@ -1,0 +1,12 @@
+<html xmlns:th="https://www.thymeleaf.org"> <!--文件头说明动态的使用thymeleaf语法-->
+<body>
+<h1>hello word!!!</h1>
+<h2>hello Security!!!</h2>
+<p>this is a html page</p>
+<p>this is security-oneSelfConfig</p>
+<a href="/logout">logout.security</a>
+<!--th动态a标签: 相对路径;如果当前项目发布在不同路径的场景中,thymeleaf会对其做不同的处理-->
+<a th:href="@{/logout}">th:logout.security</a>
+
+</body>
+</html>

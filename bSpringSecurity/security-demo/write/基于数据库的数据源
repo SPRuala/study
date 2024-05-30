@@ -1,0 +1,14 @@
+yaml配置文件:
+  #security配置
+  security:
+    user:
+      name: ruala #登录用户名
+      password: ruala #登录密码
+
+mybatis-plus需要额外添加的点:
+    Mapper继承通用BaseMapper<T>接口
+    Service实现类继承通用ServiceImpl<T>
+
+Bug:
+    1.No qualifying bean of type 'com.example.securitydemo.mapper.UserMapper' available:
+    原因:忘加@Mapper注解,Mapper接口没被扫描到

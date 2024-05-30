@@ -1,0 +1,5 @@
+实现流程:
+    1.创建DBUserDetailsManager类,实现UserDetailsManager, UserDetailsPasswordService方法
+    2.重写loadUserByUsername()方法
+        · 创建mybatisplus查询对象QueryWrapper
+    3.在WebSecurityConfig中创建userDetailsService()方法
